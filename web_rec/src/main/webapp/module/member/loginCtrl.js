@@ -28,7 +28,7 @@ member.controller('LoginCtrl', ['$scope','$rootScope','SecurityControllerService
      * 登陆
      */
     $scope.login = function (user) {
-
+        debugger;
         var onError=function (data, status) {
             $scope.show_result=true;
             $scope.result_msg = data.result.errorCode;
