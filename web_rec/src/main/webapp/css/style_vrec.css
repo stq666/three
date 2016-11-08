@@ -1,6 +1,6 @@
 
 
-body {	margin:0;	padding:0;	font-family:Arial, Helvetica, sans-serif;	font-size:12px; background: url(../images/bg.gif) repeat-x #3B160E;}
+body {	margin:0;	padding:0;	font-family:Arial, Helvetica, sans-serif;	font-size:12px; background: url(../images/bg1.jpg) repeat-x #3B160E;}
 
 /***********************登陆的css**********************************/
 #three{ width:auto; margin:0 auto; background:url(../images/Member.gif) no-repeat center top ; height:700px;text-align:center;}
@@ -20,3 +20,31 @@ body {	margin:0;	padding:0;	font-family:Arial, Helvetica, sans-serif;	font-size:
 .loginname{ width:180px; height:24px;  border:0; background:url(../images/index_12.gif) no-repeat; padding:5px 10px;}
 .loginpas{ width:180px; height:24px;  border:0; background:url(../images/index_16.gif) no-repeat; padding:5px 10px;}
 .loginbtn{ width:85px; height:37px; float:left; border:0; background:url(../images/loginbtn.gif) no-repeat; cursor:pointer; margin-top:15px;}
+
+
+/****************公共部分css*************************/
+.vrex_main{width: 1488px; height: auto; /*float: left;*/ background: #f2f2f2; margin: 0 auto; display: table; min-height: 798px;}
+.vrec_hreder{ width: 1435px; height: auto; float: left; background: url(../images/vrec/jiulogo.png) no-repeat left center; padding: 2%;}
+
+.vrec_hreder_div{ width: 83%; float: right;}
+
+.vrec_hreder_div h2{ line-height: 30px; font-size: 16px; color: #6d2f90; float: left}
+
+.vrec_hreder_div h2 > span{ font-size: 18px}
+
+.vrec_hreder_div span a , .vrec_hreder_div h2 a{ color: #6d2f90; font-size: 16px;}
+
+.vrec_hreder_div > span{ float: right}
+.verc_cont{ width: 1428px; float: left; margin: 0 2%; display: inline;  height: auto;}
+.verc_left_nav{ width: 215px; float: left; background: #e8eae7; height: auto; /*padding: 0 3%;*/ border: 1px solid #ccc; margin-right: 15px;}
+
+.verc_left_nav ul{width: 100%}
+
+.verc_left_nav ul li dt span{ text-align: center; line-height: 56px; font-size: 14px; cursor: pointer; border-bottom: 1px solid #ccc}
+
+.verc_left_cur{background: #f5f5f5}
+
+.vrec_left_span{ display: block;width: 213px; font-size: 15px}
+
+.vrec_left_span:hover{ background: #f5f5f5}
+.verc_right_cont{ width: 1148px; float: left; background: #fff; height:auto; padding: 0 3% 3% 3%;}
