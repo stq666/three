@@ -1,0 +1,15 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+
+	<bean id="pwdSha512Matcher"
+		class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+		<property name="hashAlgorithmName" value="SHA-256" />
+		<property name="hashIterations" value="1024" />
+	</bean>
+
+	<bean id="servicePasswordService" class="com.drink.cornerstone.security.PasswordService">
+		<property name="hashedCredentialsMatcher" ref="pwdSha512Matcher" />
+	</bean>
+</beans>

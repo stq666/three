@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	   http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+        >
+    <dubbo:application logger="log4j" name="servicesub02"/>
+    <!--<dubbo:registry address="zookeeper://192.168.1.126:2181" transporter="curator" />-->
+    <dubbo:registry protocol="zookeeper" address="10.165.62.75:2181,10.161.193.216:2181,10.161.193.216:2182" transporter="curator"/>
+    <!--
+     ?backup=127.0.0.1:2181
+               -->
+    <dubbo:protocol id="hessian1" name="hessian" port="20876"  threads="20">
+        <dubbo:parameter key="overloadEnabled" value="true"/>
+    </dubbo:protocol>
+    <!--
+    <dubbo:monitor protocol="registry"></dubbo:monitor>
+ -->
+
+
+   <!-- <dubbo:service  ref="subUserCreateParamService" interface="com.rec.sub.service.system.UserCreateParamService"/>-->
+
+
+</beans>

@@ -1,0 +1,395 @@
+
+
+body{ background: #6d2f90;}
+
+img{ cursor: pointer;}
+
+input{ outline: none;}
+
+
+/**********************��Ա��Ϣά��***************************/
+.vrex_main{width: 1488px; height: auto; /*float: left;*/ background: #f2f2f2; margin: 0 auto; display: table; min-height: 798px;}
+
+.vrec_hreder{ width: 1435px; height: auto; float: left; background: url(../images/vrec/jiulogo.png) no-repeat left center; padding: 2%;}
+
+.vrec_hreder_div{ width: 83%; float: right;}
+
+.vrec_hreder_div h2{ line-height: 30px; font-size: 16px; color: #6d2f90; float: left}
+
+.vrec_hreder_div h2 > span{ font-size: 18px}
+
+.vrec_hreder_div span a , .vrec_hreder_div h2 a{ color: #6d2f90; font-size: 16px;}
+
+.vrec_hreder_div > span{ float: right}
+
+.verc_cont{ width: 1428px; float: left; margin: 0 2%; display: inline;  height: auto;}
+
+.verc_left_nav{ width: 215px; float: left; background: #e8eae7; height: auto; /*padding: 0 3%;*/ border: 1px solid #ccc; margin-right: 15px;}
+
+.verc_left_nav ul{width: 100%}
+
+.verc_left_nav ul li dt span{ text-align: center; line-height: 56px; font-size: 14px; cursor: pointer; border-bottom: 1px solid #ccc}
+
+.verc_left_cur{background: #f5f5f5}
+
+/*.vrec_left_a{ color: #6d2f90;}*/
+
+.vrec_left_span{ display: block;width: 213px; font-size: 15px}
+
+.vrec_left_span:hover{ background: #f5f5f5}
+
+.verc_right_cont{ width: 1148px; float: left; background: #fff; height:auto; padding: 0 3% 3% 3%;}
+
+.right_cont_p{ width: 100%; float: left; padding: 1% 0;}
+
+.right_cont_p button{ padding: 5px 20px; border: 1px solid #eee; border-radius: 5px; float: left; margin-right: 2%;}
+
+.right_btn_true{ background: #6d2f90; color: #fff;}
+
+.right_btn_true:hover{background:#8134ad ; cursor: pointer;}
+
+.right_btn_false{ background: #e6e7e8;}
+
+.right_btn_false:hover{background:#d7d7d7 ; cursor: pointer;}
+
+.right_cont_div{ width: 100%; float: left; height: auto; border: 1px solid #ccc; padding: 1% 2%; margin-bottom: 2%;}
+
+.right_cont_ul{ width: 100%; float: left;}
+
+.right_cont_ul > li{ width: 30%; float: left; margin-right: 3%; margin-bottom: 1%;}
+
+.right_cont_ul > li label{ width: 26%; float: left; margin-right: 5%; text-align: right; line-height: 35px;}
+
+.right_cont_ul > li label b{ color: #f00;}
+
+.right_cont_ul > li input , .right_cont_ul li select{ height: 34px; line-height: 34px; width: 65%; float: left}
+
+.renyuan_tab{ width: 100%; float: left; border: 1px solid #ccc;}
+
+.renyuan_h6{ width: 100%; float: left; height: 50px; line-height: 50px; background: #f4f5fa; border-bottom: 1px solid #ccc;}
+
+.renyuan_h6 button{ padding:8px 1%; background: #fff; border: 1px solid #ccc;border-radius: 3px; margin-top: 8px; margin-left: 1%; line-height: 1}
+
+.renyuan_h6 button:hover{ background: #eee;}
+
+.jiankong_tab tr{ border-bottom: 1px solid #ccc;}
+
+.jiankong_tab tr td{ padding: 10px 0;}
+.jixiao_lijichakan{ padding: 5px 10px; line-height: normal; background: #5B398E; color: #fff; border-radius: 3px; margin-right: 10px; float: left;}
+.jixiao_lijichakan1{ padding: 5px 10px; line-height: normal; background: #5B398E; color: grey; border-radius: 3px; margin-right: 10px; float: left;}
+
+
+
+/**********************ά���Ͽ�ά��***************************/
+
+.jixiaorenke{ width: 100%; float: left; border: 1px solid #ccc;}
+
+.jixiaorenke_p{ width: 100%; height: 40px; line-height: 40px; padding-left: 3%; font-size: 14px; border-bottom: 1px solid #ccc; float: left;}
+
+.jixiaorenke_div{ width: 100%; float: left; border-left: 3px solid #6f2d90;}
+
+.jixiaorenke_div_line1{ width: 100%; float: left; padding-left: 3%; border-bottom: 1px solid #ccc; }
+
+.jixiaorenke_line1_cont{ width: 30%; float: left; line-height: 45px;}
+
+.jixiaorenke_line1_cont label{ float: left; width: 10%; margin-right: 2%; font-size: 14px; }
+
+.jixiaorenke_line1_cont select{ width: 30%; height: 30px;}
+
+.jixiaorenke_line1_cont1{ width: 100%; float: left; margin-bottom: 1%;}
+
+.jixiaorenke_line1_cont1 label{ float: left;font-size: 14px; width: 15%; margin-right: 2%;}
+
+.jixiaorenke_line1_cont1 textarea{ width: 95%; float: left; padding: 5px;}
+
+.jixiaorenke_cont1_div{ width: 95%; float: left; border: 1px solid #ccc;}
+
+.jixiaorenke_cont1_div h6{ width: 100%; float: left; height: 40px; background: #f4f5fa; border-bottom: 1px solid #ccc;}
+
+.jixiaorenke_cont1_div h6 button{ padding: 8px 15px; border: 1px solid #eee; border-radius: 5px; float: left;; margin-left: 1%; background: #fff; margin-top: 3px;}
+
+.jixiaorenke_cont1_div h6 button:hover{ background: #eee; cursor: pointer;}
+
+.jixiaorenke_cont1_div_cont{ width: 100%; float: left; overflow: auto;}
+
+.jixiaorenke_cont1_div_cont p{ width: 100%; float: left; padding:5px 1%; border-bottom: 1px solid #ccc; font-size: 15px;}
+
+.jixiaorenke_cont1_div_cont p span{ float: right; display: block; width: 15%;}
+
+.jixiaorenke_cont1_div_cont p span a{ color: #6f2d90;}
+
+.jixiaorenke_cont1_div_cont p span input{ width: 50px; height: 25px; line-height: 25px; float: left; }
+
+.jixiaorenke_cont1_div_cont p span img{ float: right; margin-top: 4px;}
+
+.shishirenke { width: 100%; float: left; margin-bottom: 1%;}
+
+.shishirenke label{ width: 7%; text-align: right; float: left; margin-right: 2%;line-height: 35px;}
+
+.shishirenke input , .shishirenke select{ height: 38px; line-height:38px; width: 20%; }
+
+.jixiaorenke_cont1_div_cont table{ width: 100%}
+
+.jixiaorenke_cont1_div_cont table tr td{ padding: 10px; border-bottom: 1px solid #ccc}
+
+
+/**********************ά���Ͽ�ά��***************************/
+
+.weihuxingwei_div_left{ width: 45%; float: left; border: 1px solid #ccc; border-radius: 5px;padding: 10px;}
+
+.weihuxingwei_div_left span{float: left; background: #fff; border: 1px solid #ccc; border-radius: 5px; height: 30px; margin-bottom: 10px;}
+
+.weihuxingwei_div_left span input{width: 200px; height: 28px; line-height: 28px; border: none; background: none; float: left;} 
+
+.weihuxingwei_div_left h4{ width: 100%; float: left; font-size: 14px; line-height: 30px;}      
+
+.weihuxingwei_div_left h4 a{ float: right; display: block; width: 13%;}            
+ 
+.weihuxingwei_div_img{ width: 5%; float: left; margin: 15% 2%;}
+
+.weihuxingwei_left_div{ width: 100%; float: left;}
+
+.weihuxingwei_left_div div{ width: 100%; float: left; line-height: 35px;}
+
+.weihuxingwei_left_div div p{width: 70%; float: left;}
+
+.weihuxingwei_left_div div a{ float: right;}
+
+.yejiao{ width: 100%; float: left;text-align: right}
+
+.yejiao a{ padding: 0 5px; cursor: pointer;}
+
+.yejiao_cur{ background: #6f2d90; color: #fff;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**********************�ɳ���ϵ***************************/
+.chengzhang_div_cont{ width: 100%; float: left; border: 1px solid #ccc; margin-bottom: 30px;}
+
+.chengzhang_cont_div{ width: 100%; float: left;}
+
+.chengzhang_cont_div_h1{ width: 100%; float: left; background: #f4f5fa; padding:10px 2%; font-size: 14px; border-bottom: 1px solid #ccc;}
+
+.chengzhang_cont_div_div{ width: 100%; float: left; padding:1% 2%; border-bottom: 1px solid #ccc; margin-bottom: 30px;}
+
+.chengzhang_cont_div_div h2{ line-height: 25px; font-size: 14px;}
+
+.chengzhang_cont_div_div h2 input{ border: none; width: 100%;}
+
+.chengzhang_tab tr{ border-bottom: 1px solid #ccc;}
+
+.chengzhang_tab tr td{ padding: 10px 0;}
+
+
+
+/**********************��촦��***************************/
+
+.daiban_cont_div_h1{ width: 100%; float: left; background: #f4f5fa; height: 45px; line-height: 45px; font-size: 14px; border-bottom: 1px solid #ccc;}
+
+.daiban_cont_div_h1 span{ padding: 0 3%;cursor: pointer; float: left; }
+
+.daiban_span_on{ display: block; float: left; height: 45px; line-height: 45px; background: #fff; }
+
+.daiban_cont_div_h1 a{display: block;float: right; width: 5%; text-align: left; /*background: url(../images/vrec/demo4.png) no-repeat right center;*/ margin-right: 2%; cursor: pointer;}
+
+.daiban_cont_div_p{ width: 100%; float: left; padding:10px 2%; border-bottom: 1px solid #ccc }
+
+.daiban_cont_div_p span input , .daiban_cont_div_p span select{ height: 34px; line-height: 34px; width: 10%;float: left;}
+
+.daiban_cont_div_p span label{ width: 8%; text-align: center; float: left;line-height: 34px}
+
+.daiban_true{ padding: 8px 15px; border: 1px solid #eee; border-radius: 5px; float: right;background: #6d2f90; color: #fff;}
+
+.daiban_true:hover{background:#8134ad ; cursor: pointer;}
+
+.daiban_b{ float: left;line-height: 32px;margin: 0 5px}
+
+
+
+/**********************��촦��***************************/
+
+.fabutongzhi_cont{ width: 94%; float: left; margin: 1% 3%; display: inline;}
+
+.fabutongzhi_cont_div{ width: 100%; float: left; margin-bottom: 1%;}
+
+.fabutongzhi_cont_div label{ width: 8%; text-align: right; margin-right: 1%; float: left;}
+
+.fabutongzhi_cont_div p{ width: 90%; float: left; border: 1px solid #999; height: 35px;}
+
+.fabutongzhi_cont_div p input{ border: none; width: 90%; float: left; background: no-repeat; line-height: 35px;}
+
+.fabutongzhi_cont_div p img{ float: right; margin:5px 5px 0 0;}
+
+
+
+
+*{padding:0px;margin:0px;font-family:"Microsoft YaHei";font-weight:normal;font-size:13px;}
+
+body{margin:0;padding:0;height:100%;width:100%;}
+
+p,ul,h1,h2,h3,h4,h5,h6,img{ font-size:12px; margin:0;padding:0;}
+
+li{list-style:none; margin:0; padding:0;}
+
+a{text-decoration:none;color:#000}
+
+a:hover{text-decoration:none;}
+
+a:active{text-decoration:none;}
+
+button{border: 0;outline: none;}
+
+
+
+
+/**********************绩效认可***************************/
+
+.tit_jixiao{ width: 100%; float: left; height: 35px; line-height: 35px; background: url(../images/vrec/h_icon.png) no-repeat left center; font-size: 14px; font-weight: bold; padding-left: 20px;}
+
+.wodejixiao{ width: 100%; float: left; padding: 10px 0; padding-left: 20px;}
+
+.wodejixiao .wodejixiao_span:first-child{ display: block; width: 100px; text-align: right;}
+
+.wodejixiao_span{ float: left;margin-right: 20px;}
+
+.wodejixiao_span input{ float: left;  margin-top: 3px; cursor: pointer;}
+
+.jixiao_cur{ font-weight: bold;}
+
+/**********************员工关怀***************************/
+
+.yuangongguanhuai_btn{ background: none; padding: 5px 10px; background: #fff; border-radius: 3px; border: 1px solid #ccc }
+
+.yuangongguanhuai_btn:hover{ background: #eee}
+/**********************其他设置***************************/
+
+.qitashezhi_a{ display: block; float: left; width: 40px; height: 92px; line-height: 92px; text-align: center; border: 1px solid #ccc; border-left: none; cursor: pointer; font-size: 20px;}
+
+
+
+/********************管理员后台首页/********************/
+
+.vrec_index_tit{ width: 100%; height:60px; line-height: 60px; border-bottom: 1px solid #ccc; text-align: center; font-size: 20px;}
+
+.vrec_index_tit1{ width: 90%; margin: 0 auto; height:60px; line-height: 60px; font-size: 20px; margin-bottom: 20px;}
+
+.vrec_index_cont{ width: 90%; margin: 0 auto; height: 60px;}
+
+.vrec_index_cont > button{ padding: 5px 20px; border: none; color: #fff; float: left; font-size: 18px; background: #5b398e; margin-right: 30px;}
+
+.vrec_index_cont > button:hover{ background: #8467ab;}
+
+.vrec_index_cont > p{ line-height: 30px; font-size: 18px;}
+
+.vrec_index_cont > p > span{ font-size: 18px; color: #5B398E; margin-left: 40px; cursor: pointer;}
+
+.vrec_index_edit_cont{ width: 100%; border: 1px solid #ccc; margin-top: 20px;}
+
+.vrec_index_edit_cont_tit{ height: 40px; line-height: 40px; font-size: 18px; color: #fff; background: #8467ab; border-bottom: 1px solid #ccc; padding-left: 10px;}
+
+.vrec_index_edit_cont_cont{ width: 100%; background: #eee; padding: 20px 0 20px 10px;}
+
+.vrec_index_edit_cont_cont > p{ float: right; margin-right: 20px;}
+
+.vrec_index_edit_cont_cont > p button{ padding: 5px 15px; border: none; border-radius:3px; margin-right: 10px; font-size: 16px;}
+
+.qiyexinxi_btn1{ background: #5B398E; color: #fff;}
+
+.qiyexinxi_btn1:hover{ background: #8467AB;}
+
+.qiyexinxi_btn2{ background: #ccc;}
+
+.qiyexinxi_btn2:hover{ background: #e0e0e0;}
+
+.vrec_index_edit_cont_cont > span{ font-size: 16px;}
+
+.vrec_index_edit_cont_cont > input{ height: 30px; line-height: 30px; width: 400px; margin-left: 15px;}
+
+.vrec_index_edit_cont_cont1{ width: 100%; padding-left: 10px; height: 40px; line-height: 40px; border-bottom: 1px solid #ccc; }
+
+.vrec_index_edit_cont_cont1 div{ width: 80%; float: left;}
+
+.vrec_index_edit_cont_cont1 div >label{ width: 100px; font-size: 16px; font-weight: normal; margin-bottom: 0;}
+
+.vrec_index_edit_cont_cont1 div > span{ font-size: 16px; margin-right: 10px;}
+
+.vrec_index_edit_cont_cont1 > span{ float: right; margin-right: 30px; font-size: 16px; color: #5B398E; cursor: pointer;}
+
+
+.guanhuai_tab{ width: 100%; border-bottom: 1px solid #ccc; float: left; margin: 15px 0}
+
+.guanhuai_tab > ul a{ width: 90px; text-align: center; height: 35px; line-height: 35px; float: left; margin-left: 10px; display: inline}
+
+.guanhuai_tab_cur{ border-bottom: 3px solid #6d2f90}
+
+.guanhuai_tab > ul li:hover{border-bottom: 3px solid #6d2f90 }
+
+
+
+.add_input{ width: 320px}
+
+
+.modal-title{ text-align: center;font-size: 18px;}
+
+.wish_select{width: 100px;
+    height: 29px;
+    float: right;
+    margin-top: 4px;
+    margin-left: 1%;
+    border: 1px solid #ccc;}
+
+.ruzhixinzeng_bg{background: url(../images/icon3.png) no-repeat right center; border: 1px solid #ccc;}
+
+.ruzhixinzeng_bg:hover{background: url(../images/icon4.png) no-repeat right center #fff; border: 1px solid #ccc; cursor: pointer;}
+/********************************选人控件的样式**********************************/
+.first_div{ float:left;height:378px;border-right:1px dashed #ccc}
+
+.first_div:nth-child(1){width:307px}
+
+.first_div:nth-child(2){width:250px}
+
+.first_div:nth-child(3){width:200px}
+
+.first_div:last-child{border:none}
+
+.first_div >h1{ height:40px;line-height:40px;width:100%; background:#eee;}
+
+.first_div:first-child > h1{ text-align:center}
+
+.first_div:nth-child(2) > h1{padding-right:10px}
+
+.first_div:nth-child(2) > h1 >span{ float:right;margin-right:10px}
+
+.first_div:nth-child(2) > h1 >span > input{ float:right;margin-top:14px}
+
+.first_div:nth-child(3) > h1{ text-align:right;padding-right:10px}
+
+.renyuanxuanze{height:335px;overflow:auto}
+
+.renyuanxuanze > li{padding:5px 15px;}
+
+.renyuanxuanze > li > input{ float:right}
+
+.renyuanxuanze > li > a{ float:right;color:#f00;font-size:16px;cursor:pointer}
+
+.first_ul{ width:100%;}
+
+.first_ul_li{ font-weight:bold}
+
+.first_ul_li_ul{width:100%; padding-left:30px}
+
+.first_ul_li_ul > li{width:100%}
+.renwuchi_search{ float: right; width: 300px; height: 35px; line-height: 35px; border: 1px solid #ccc; border-radius: 5px; padding:0 3px; font-size: small;margin-top: 2px }
+
+.renwuchi_search > input{ width: 91%;height: 30px;line-height: 30px;border: none;outline: none;}

@@ -1,0 +1,270 @@
+<style>
+    .advancedSearchBox{ margin: 0;min-height: 34px;line-height: 34px}
+
+    .advancedSearchBox .search-parameter-input{background: none}
+
+    .table{ margin-bottom: 0}
+
+    .renyuan_tab > div.ng-isolate-scope{ display: none}
+
+    .ng-table th{ text-align: left}
+
+    .table>thead>tr>th{ vertical-align: middle;}
+
+    .table>thead>tr>th > div span{ font-weight: bold}
+    .a-upload {
+        padding: 0 20px;
+        height: 30px;
+        line-height: 30px;
+        position: relative;
+        cursor: pointer;
+        color: #888;
+        background: #fafafa;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        overflow: hidden;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1
+    }
+
+    .a-upload  input {
+        position: absolute;
+        font-size: 100px;
+        right: 0;
+        top: 0;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        cursor: pointer
+    }
+
+    .a-upload:hover {
+        color: #444;
+        background: #eee;
+        border-color: #ccc;
+        text-decoration: none
+    }
+</style>
+    <p class="right_cont_p"></p>
+    <div class="renyuan_tab">
+        <h6 class="renyuan_h6" ng-show="ifmanager==1">
+            <button ng-click="clickAdd()"><a style="color: #6d2f90;">+ 会员注册</a></button>
+            <button ng-click="modifyMember()">编辑</button>
+            <!--<button ng-click="deleteMember()">禁用</button>-->
+            <button ng-click="resetPwd()">重置密码</button>
+            <span style="float: right; background: #fff; border: 1px solid #ccc; border-radius: 5px; height: 30px; margin: 10px 3% 0 0;"><input type="text" ng-model="searchName" style="width: 200px; height: 28px; line-height: 28px; border: none; background: none; float: left;" placeholder=" 搜索人员" ng-keydown="search()" /><img ng-click="search()" style="float: left;" src="images/vrec/demo13.png" /></span>
+        </h6>
+        <table width="100%" ng-table="tableParams" class="table" >
+            <tr ng-repeat="data in $data">
+                <td  header="'ng-table/headers/checkbox.html'" style="width: 3%" ng-show="ifmanager==1">
+                    <input type="checkbox" ng-model="checkboxes.items[data.id]" />
+                </td>
+                <td data-title="'序号'" style="width: 3%">
+                    {{$index+1}}
+                </td>
+                <td data-title="'员工编号'" style="width: 8%" ng-show="ifmanager==0">
+                    {{data.serialnumber}}
+                </td>
+                <td data-title="'员工编号'" style="width: 8%" ng-show="ifmanager==1">
+                    <a ng-href="#/base/structure/{{data.id}}" style="color: red;">{{data.serialnumber}}</a>
+                </td>
+                <td data-title="'姓名'" style="width: 7%">
+                    {{data.name}}
+                </td>
+                <td data-title="'性别'" style="width: 5%">
+                    {{data.sex==0&&'男'||'女'}}
+                </td>
+                <td data-title="'手机号'" style="width: 10%" ng-show="ifmanager==1">
+                    {{data.telphone}}
+                </td>
+                <td data-title="'推荐人'" style="width: 7%" ng-show="ifmanager==1">
+                    {{data.pName}}
+                </td>
+                <td data-title="'注册日期'" style="width: 10%">
+                    {{data.createtime| date :'yyyy-MM-dd'}}
+                </td>
+                <td data-title="'微信号'" style="width: 10%" ng-show="ifmanager==1">
+                    {{data.wechat}}
+                </td>
+                <td data-title="'下级人数'" style="width: 5%" ng-show="ifmanager==1">
+                    {{data.totalNumber}}
+                </td>
+                <td data-title="'总奖金'" style="width: 5%" ng-show="ifmanager==1">
+                    <a ng-href="#/base/reward/{{data.serialnumber}}" style="color: red;">{{data.totalMoney}}</a>
+                </td>
+                <!--<td data-title="'奖金发放状态'" style="width: 10%" ng-show="ifmanager==1">-->
+                    <!--{{data.rewardStatus==0?'未发放':'已发放'}}-->
+                <!--</td>-->
+                <!--<td data-title="'操作'" style="width: 50%" ng-show="ifmanager==1">-->
+                    <!--<button class="jixiao_lijichakan"  ng-click="showEveryDayMoney(data.serialnumber)">未发奖金</button>-->
+                    <!--<button class="jixiao_lijichakan"  ng-click="addMoney(data.serialnumber,data.totalMoney,data.rewardStatus)">发放奖金</button>-->
+                <!--</td>-->
+            </tr>
+        </table>
+    </div>
+    <div class="yejiao">
+        <div class="col-lg-10">
+            <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" items-per-page="pageSize" class="pagination-sm" first-text="首页" last-text="尾页" ng-change="pageChanged()" previous-text="上一页" next-text="下一页" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
+        </div>
+        <div class="col-lg-2 text-center" style="margin: 20px 0;">
+            <pre style="padding: 4.5px;">页: {{bigCurrentPage}} / {{numPages}}</pre>
+        </div>
+    </div>
+    <script type="text/ng-template" id="ng-table/headers/checkbox.html">
+        <input type="checkbox" ng-model="checkboxes.checked" id="select_all" name="filter-checkbox" value=""  style="height:20px;" />
+    </script>
+
+   <!--添加员工-->
+<div class="modal fade" id="addModal"  data-backdrop="static">
+    <form>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"  ng-click="cancelAdd()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">会员注册</h4>
+                </div>
+                <div class="modal-body" style="height: 400px;">
+                    <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
+                        <label class="col-sm-2 control-label" style="text-align: right;"><a style="color: #f00;">*</a>员工编号</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" ng-model="member.serialnumber" placeholder="" maxlength="30" disabled>
+                            <span ng-show="errorSerFlag" style="color: red;">{{errorSerMessage}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
+                        <label class="col-sm-2 control-label" style="text-align: right;"><a style="color: #f00;">*</a>姓名</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" ng-model="member.name" placeholder="" maxlength="30" required >
+                        </div>
+                    </div>
+                    <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
+                        <label class="col-sm-2 control-label" style="text-align: right;"><a style="color: #f00;">*</a>性别</label>
+                        <div class="col-sm-10">
+                            <select ng-model="sexs" ng-init="options1=[{'name':'男','id':0},{'name':'女','id':1}]" required ng-options="v.name for v in options1" class="form-control">
+                                <option value="">-- 请选择 --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
+                        <label class="col-sm-2 control-label" style="text-align: right;"><a style="color: #f00;">*</a>身份证号</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="身份证号必填" ng-model="member.idcard" required>
+                        </div>
+                    </div>
+                    <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
+                        <label class="col-sm-2 control-label" style="text-align: right;">微信号</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="" ng-model="member.wechat" maxlength="30">
+                        </div>
+                    </div>
+                    <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
+                        <label class="col-sm-2 control-label" style="text-align: right;">支付宝</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="" ng-model="member.alipay" maxlength="30">
+                        </div>
+                    </div>
+                    <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
+                        <label class="col-sm-2 control-label" style="text-align: right;">qq号</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="" ng-model="member.qq" maxlength="30">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
+                        <label class="col-sm-2 control-label" style="text-align: right;"><a style="color: #f00;">*</a>银行卡号</label>
+                        <div class="col-sm-10">
+                            <input  class="form-control" placeholder="银行卡号必填" ng-model="member.cardno" type="text" maxlength="50" required >
+                            <span ng-show="errorEmailFlag" style="color: red;">{{errorEmailMessage}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
+                        <label class="col-sm-2 control-label" style="text-align: right;"><a style="color: #f00;">*</a>手机</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" placeholder="" ng-model="member.telphone" type="text" maxlength="11" required ng-blur="judgePhone()">
+                            <span ng-show="errorPhoneFlag" style="color: red;">{{errorPhoneMessage}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
+                        <label class="col-sm-2 control-label" style="text-align: right;"><a style="color: #f00;">*</a>推荐人编号</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" placeholder="" ng-model="member.pserialnumber" type="text" maxlength="11" disabled>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary"  style="background: #6f2d90;" ng-disabled=" member.name==null || member.idcard==null || member.cardno==null || member.telphone==null || sexs==null  " ng-click="saveMember()">确认提交</button>
+                    <button type="button" class="btn btn-default" ng-click="cancelAdd()">取消</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </form>
+</div>
+
+<div class="modal fade" id="addMoney">
+    <form>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"  ng-click="cancelMoney()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">发放奖金(<font color="red;">{{rewardStatus==0?'未发放':'已发放'}}</font>)</h4>
+                </div>
+
+                <div class="modal-body" style="overflow: auto;">
+                    <table width="100%"  class="table" >
+                        <tr ng-repeat="money in moneys">
+                            <td data-title="'名称'" >
+                                {{money.name}}
+                            </td>
+                            <td data-title="'金额'" >
+                                {{money.totalMoney}}
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" ng-hide="rewardStatus==1" style="background: #6f2d90;"  ng-click="saveMoney()">确认发放</button>
+                    <button type="button" class="btn btn-default" ng-click="cancelMoney()">取消</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </form>
+</div>
+
+
+<div class="modal fade" id="noMoney">
+    <form>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"  data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">发放奖金</h4>
+                </div>
+
+                <div class="modal-body" style="overflow: auto;">
+                    <table width="100%"  class="table" >
+                        <tr ng-repeat="noMoney in noMoneys">
+                            <td data-title="'日期'" >
+                                {{noMoney.rewardtime | date:'yyyy-MM-dd'}}
+                            </td>
+                            <td data-title="'金额'" >
+                                {{noMoney.rewardmoney}}
+                            </td>
+                            <td data-title="'状态'" >
+                                {{noMoney.status==0?'未发放':'已发放'}}
+                            </td>
+                            <td data-title="'操作'" >
+                                <button class="jixiao_lijichakan"  ng-click="saveMoney1(noMoney.memberserialnumber,noMoney.rewardtime)">奖金发放</button>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </form>
+</div>

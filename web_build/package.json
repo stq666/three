@@ -1,0 +1,23 @@
+{
+  "name": "hrweb",
+  "version": "0.0.1",
+  "description": "hr web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+    "dependencies": {
+
+    },
+    "devDependencies": {
+        "grunt": "latest",
+        "grunt-contrib-copy":"latest",
+        "grunt-contrib-clean":"latest",
+        "grunt-contrib-watch": "latest",
+        "grunt-exec": "latest",
+        "grunt-cmd-concat": "latest",
+        "grunt-contrib-uglify": "latest"
+    }
+}

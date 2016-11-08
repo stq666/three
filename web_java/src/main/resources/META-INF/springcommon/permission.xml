@@ -1,0 +1,142 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+	<!-- ALL permission resources entry -->
+	<bean id="permission-resources" class="com.drink.cornerstone.security.PermissionResources">
+		<property name="resources">
+			<map>
+				<entry key="department">
+					<list>
+						<value>department.list</value>
+						<value>department.add</value>
+						<value>department.modify</value>
+						<value>department.delete</value>
+                        <value>department.find</value>
+					</list>
+				</entry>
+				<entry key="permission">
+					<list>
+						<value>permission.list</value>
+						<value>permission.update</value>
+						<value>permission.tree</value>
+						<value>permission.savePermission</value>
+						<value>permission.givePermByRole</value>
+						<value>permission.giveRoleAndPerm</value>
+					</list>
+				</entry>
+                <entry key="organization">
+                    <list>
+                         <value>organization.importMain</value>
+                         <value>organization.listHtOrg</value>
+                         <value>organization.listOrgTree</value>
+                         <value>organization.accountList</value>
+                         <value>organization.showAccOneAndAccTwoByOid</value>
+                         <value>organization.showHtAccTwoByPid</value>
+                         <value>organization.showAccTwoByPid</value>
+                         <value>organization.importHTAccabilityOne</value>
+                         <value>organization.importHTAccabilityTwo</value>
+                         <value>organization.listByPid</value>
+                         <value>organization.save</value>
+                         <value>organization.update</value>
+                         <value>organization.deletes</value>
+                         <value>organization.start</value>
+                         <value>organization.storage</value>
+                         <value>organization.findOrganization</value>
+                         <value>organization.listOccByOrgNum</value>
+                         <value>organization.saveAccountOne</value>
+                         <value>organization.updateAccountOne</value>
+                         <value>organization.deleteAccountOne</value>
+                         <value>organization.saveAccountTwo</value>
+                         <value>organization.updateAccountTwo</value>
+                         <value>organization.deleteAccountTwo</value>
+                         <value>organization.commitVerifystatus</value>
+                         <value>organization.showFramework</value>
+                         <value>organization.showSpecification</value>
+                         <value>organization.listAllocation</value>
+                         <value>organization.extendKeyList</value>
+                         <value>organization.extendKeyUpdate</value>
+                         <value>organization.showHtParentAndChildren</value>
+                         <value>organization.showParentAndChildren</value>
+                         <value>organization.showHtLeaderOccName</value>
+                         <value>organization.showLeaderOcc</value>
+                         <value>organization.showBasicdataCategory</value>
+                         <value>organization.showBasicdata</value>
+                         <value>organization.shwoOrgData</value>
+                         <value>organization.showOrgType</value>
+                         <value>organization.showExtendKeyOrg</value>
+                         <value>organization.showExtendSelectData</value>
+                         <value>organization.showSerialnum</value>
+                         <value>organization.publishOrganization</value>
+                         <value>organization.showHistoryOrganization</value>
+                         <value>organization.showHistoryOrganization1</value>
+                         <value>organization.accVerifystatus</value>
+                         <value>organization.showHtAccOneByOid</value>
+                         <value>organization.saveImportAccOneAndAccTwo</value>
+                         <value>organization.showLeaderById</value>
+                         <value>organization.saveAllot</value>
+                         <value>organization.listOccByOid</value>
+                         <value>organization.listAllotByAccTwoId</value>
+                         <value>organization.checkAllot</value>
+                         <value>organization.updateAccOneIndexNum</value>
+                         <value>organization.showCreateId</value>
+                         <value>organization.updateIndexNumber</value>
+                         <value>organization.checkIsChild</value>
+                         <value>organization.findOccByOrgaId</value>
+                    </list>
+                </entry>
+
+
+                <entry key="occ">
+                    <list>
+                        <value>occ.importMain</value>
+                        <value>occ.listHtResOcc</value>
+                        <value>occ.listHtOcc</value>
+                        <value>occ.listHtRes</value>
+                        <value>occ.listGSResAndTree</value>
+                        <value>occ.listGSResTree</value>
+                        <value>occ.listGSRes</value>
+                        <value>occ.saveOffice</value>
+                        <value>occ.list</value>
+                        <value>occ.save</value>
+                        <value>occ.detail</value>
+                        <value>occ.update</value>
+                        <value>occ.updateStatus</value>
+                        <value>occ.updateIndex</value>
+                        <value>occ.deletes</value>
+                        <value>occ.updateResStatus</value>
+                        <value>occ.findMaxResOneSerial</value>
+
+
+                        <value>occ.saveResOne</value>
+                        <value>occ.updateResOne</value>
+                        <value>occ.deleteResOne</value>
+                        <value>occ.findMaxResTwoSerial</value>
+                        <value>occ.occController_saveResTwo</value>
+                        <value>occ.updateResTwo</value>
+                        <value>occ.deleteResTwo</value>
+                        <value>occ.updateResOneIndex</value>
+                        <value>occ.updateResTwoIndex</value>
+                        <value>occ.findQualifi</value>
+                        <value>occ.saveQualifi</value>
+                        <value>occ.updateQualifi</value>
+                        <value>occ.occController_deleteQualifi</value>
+
+                        <value>occ.verifyQualifi</value>
+                        <value>occ.historyList</value>
+                        <value>occ.historySave</value>
+                    </list>
+                </entry>
+
+
+
+
+
+
+
+
+			</map>
+		</property>
+	</bean>
+
+</beans>

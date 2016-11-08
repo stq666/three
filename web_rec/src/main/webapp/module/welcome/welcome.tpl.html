@@ -1,0 +1,43 @@
+<h5 class="vrec_index_tit">欢迎进入酒友联盟后台</h5>
+    <p class="vrec_index_tit1">您今天的收入总额：{{member.totalMoney}}(<font color="red;">{{member.rewardStatus==0?'未结算':'已结算'}}</font>)</p>
+
+    <div class="vrec_index_cont">
+        <button>编号</button>
+        <p>{{member.serialnumber}}</p>
+    </div>
+    <div class="vrec_index_cont">
+        <button>姓名</button>
+        <p>{{member.name}}</p>
+    </div>
+    <div class="vrec_index_cont">
+        <button>性别</button>
+        <p>{{member.sex==0?'男':'女'}}</p>
+    </div>
+    <div class="vrec_index_cont">
+        <button>身份证号</button>
+        <p>{{member.idcard}}</p>
+    </div>
+    <div class="vrec_index_cont">
+        <button>微信号</button>
+        <p>{{member.wechat}}</p>
+    </div>
+    <div class="vrec_index_cont">
+        <button>支付宝</button>
+        <p>{{member.alipay}}</p>
+    </div>
+    <div class="vrec_index_cont">
+        <button>qq</button>
+        <p>{{member.qq}}</p>
+    </div>
+    <div class="vrec_index_cont">
+        <button>银行卡号</button>
+        <p>{{member.cardno}}</p>
+    </div>
+    <div class="vrec_index_cont">
+        <button>手机号</button>
+        <p>{{member.telphone}}</p>
+    </div>
+    <div class="vrec_index_cont">
+        <button>推荐人</button>
+        <p>{{member.pName}}</p>
+    </div>

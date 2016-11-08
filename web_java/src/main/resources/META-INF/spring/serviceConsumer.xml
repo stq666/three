@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--
+    <dubbo:monitor protocol="registry"/>
+    -->
+    <!--<dubbo:registry address="zookeeper://192.168.1.126:2181" transporter="curator"/>-->
+    <dubbo:registry protocol="zookeeper" address="10.165.62.75:2181,10.161.193.216:2181,10.161.193.216:2182" transporter="curator"/>
+
+    <dubbo:consumer check="false" />
+    <!-- 该配置文件填写远程调用的服务写法如下：
+      <dubbo:reference id="adminService" interface="com.wuyintong.platform.service.AdminService"/>
+      -->
+    <!--<dubbo:reference  id="subUserCreateParamService" interface="com.hr.sub.service.system.UserCreateParamService" timeout="100000"/>-->
+</beans>

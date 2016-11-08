@@ -1,0 +1,45 @@
+<style>
+body{background: #E5E9F4 }
+    .denglu_cont{ width: 357px;background:#f5f3f6; border-radius: 10px; padding: 25px 28px 40px 28px; border: 1px solid #ccc; margin-top: 88px; margin-right: 0; float: right}
+
+    .denglu_cont > p{ width: 100%;}
+
+    .denglu_cont > p span{ font-size: 18px; line-height: 35px; color: #584e71}
+
+    .denglu_cont > p > input{ width: 100%;height: 35px;line-height: 35px;font-size: 18px;}
+
+    .jizhu{ width: 100%; height:50px; line-height: 50px; margin-top: 30px; margin-bottom: 10px}
+
+    .jizhu > span{ color: #8C8C8C; font-size: 14px;}
+
+    .jizhu > span input{ width: 14px; height: 14px; float: left; margin-top: 19px;}
+
+    .jizhu a{ float: right; font-size: 14px; color: #B585D0;}
+
+    .denglu_button{ width: 100%;}
+
+    .denglu_btn{ width: 100%; text-align: center; color: #fff; background: #8d6ca3 ; border: none; border-radius: 3px; height: 40px; line-height: 40px; font-size: 20px;}
+    .login_tit{ width: 100%; font-size: 25px; color: #6f638f; margin-top: 0; line-height: 27px; margin-bottom: 30px}
+
+    .login_tit > span{ float: right}
+</style>
+
+<div class="jishirenke" style="background: #E5E9F4">
+    <div class="jishirenke_cont" style="background: url(images/bg_large1.png) no-repeat; height: 538px;width: 1002px;margin: 0 auto">
+        <form  class="form-signin" role="form" novalidate name="loginForm" ng-submit="login(user)" style="float: right;">
+            <div class="denglu_cont">
+                <h1 class="login_tit">会员登录<span></span></h1>
+                <p>
+                    <span>账号：</span><input type="text" name="loginName" ui-validate="{blacklist : 'notBlackListed($value)' }"  placeholder="Email address" required   autofocus="" ng-model="user.loginName">
+                </p>
+                <p>
+                    <span>密码：</span><input type="password" placeholder="Password" required ng-model="user.password">
+                </p>
+                <div class="denglu_button">
+                    <button class="denglu_btn" ng-disabled="loginForm.$invalid" type="submit">立即登录</button>
+                    <span style="color:red;  line-height: 5;" ng-show="show_result">{{result_msg}}</span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

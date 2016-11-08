@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+
+<!-- Activates scanning of @Autowired
+    <context:annotation-config/>
+
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="com.wuyintong.platform.converter.MyMappingJackson2HttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/p</value>
+                        <value>application/json</value>
+                        <value>text/html</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+
+    <bean
+            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+        <property name="order" value="2" />
+    </bean>
+
+    <bean id="freemarkerConfig"
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/ftl/" />
+        <property name="defaultEncoding" value="utf-8" />
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">10</prop>
+                <prop key="locale">zh_CN</prop>
+                <prop key="datetime_format">yyyy-MM-dd</prop>
+                <prop key="date_format">yyyy-MM-dd</prop>
+                <prop key="number_format">#.##</prop>
+            </props>
+        </property>
+    </bean>
+
+
+    <bean id="freemarkerViewResolver"
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="cache" value="true" />
+        <property name="suffix" value=".ftl" />
+        <property name="contentType" value="text/html;charset=UTF-8"></property>
+        <property name="requestContextAttribute" value="request" />
+        <property name="exposeSpringMacroHelpers" value="true" />
+        <property name="exposeRequestAttributes" value="true" />
+        <property name="exposeSessionAttributes" value="true" />
+        <property name="order" value="0"></property>
+    </bean>
+     <mvc:resources mapping="/img/**" location="/img/"
+                   cache-period="31556926" />
+    <mvc:resources mapping="/images/**" location="/images/"
+                   cache-period="31556926" />
+    <mvc:resources mapping="/ext/**" location="/ext/"
+                   cache-period="1" />
+    <mvc:resources mapping="/js/**" location="/js/"
+                   cache-period="1" />
+    <mvc:resources mapping="/css/**" location="/css/"
+                   cache-period="1" />
+-->
+
+    <!-- Configures the annotation-driven Spring MVC Controller programming model.
+     Note that, with Spring 3.0, this tag works in Servlet MVC only!
+     See Spring Reference 15.12 Configuring Spring MVC
+     @ http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/mvc.html#mvc-annotation-driven-->
+    <mvc:annotation-driven />
+    <!-- Without the following adapter, we'll get a "Does your handler implement a supported interface like Controller?"
+ This is because mvc:annotation-driven element doesn't declare a SimpleControllerHandlerAdapter
+ For more info
+ See http://stackoverflow.com/questions/3896013/no-adapter-for-handler-exception
+ See http://forum.springsource.org/showthread.php?t=48372&highlight=UrlFilenameViewController -->
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+    <context:annotation-config/>
+<!--
+    <dwr:annotation-scan base-package="com.wuyintong.platform.web" scanDataTransferObject="true" scanRemoteProxy="true" />
+    <dwr:configuration />
+    -->
+    <!-- upload file -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="1024000"></property>
+        <property name="defaultEncoding" value="utf-8"></property>
+    </bean>
+    <context:component-scan base-package="com.drink.controller" />
+</beans>

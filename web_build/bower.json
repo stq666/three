@@ -1,0 +1,30 @@
+{
+  "name": "hrweb",
+  "version": "0.0.1",
+  "description": "hr web",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+    "dependencies": {
+    "angularjs": "~1.2.28",
+    "jquery": "~1.11.2",
+    "bootstrap":"~3.3.4",
+    "angular-bootstrap":"0.12.0",
+    "angular-resource":"~1.2.28",
+    "angular-cookies":"~1.2.28",
+    "angular-route":"~1.2.28",
+    "angular-file-upload":"",
+    "ng-table":"0.5.4",
+    "angular-animate":"1.2.28",
+    "angular-local-storage": "",
+    "angular-ui-router": "",
+      "angular-advanced-searchbox":"",
+      "bootstrap-switch":""
+    }
+}

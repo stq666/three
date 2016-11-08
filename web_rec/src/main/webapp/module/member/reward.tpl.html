@@ -1,0 +1,36 @@
+<style>
+    .table{ margin-bottom: 0}
+
+    .renyuan_tab > div.ng-isolate-scope{ display: none}
+
+    .ng-table th{ text-align: left}
+
+    .table>thead>tr>th{ vertical-align: middle;}
+
+    .table>thead>tr>th > div span{ font-weight: bold}
+</style>
+    <p class="right_cont_p"></p>
+    <div class="renyuan_tab">
+        <table width="100%" ng-table="tableParams" class="table" >
+            <tr ng-repeat="data in $data">
+                <td data-title="'序号'" style="width: 3%">
+                    {{$index+1}}
+                </td>
+                <td data-title="'奖励日期'" style="width: 8%">
+                    {{data.rewardtime | date :'yyyy-MM-dd'}}
+                </td>
+                <td data-title="'奖励金额'" style="width: 8%">
+                    {{data.totalMoney}}
+                </td>
+
+            </tr>
+        </table>
+    </div>
+    <div class="yejiao">
+        <div class="col-lg-10">
+            <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" items-per-page="pageSize" class="pagination-sm" first-text="首页" last-text="尾页" ng-change="pageChanged()" previous-text="上一页" next-text="下一页" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
+        </div>
+        <div class="col-lg-2 text-center" style="margin: 20px 0;">
+            <pre style="padding: 4.5px;">页: {{bigCurrentPage}} / {{numPages}}</pre>
+        </div>
+    </div>

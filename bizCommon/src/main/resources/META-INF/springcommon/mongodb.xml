@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<bean id="mongoConnection" init-method="init"  class="com.drink.cornerstone.mongodb.MongoConnection">
+    <property name="serverAddressList">
+        <list value-type="com.mongodb.ServerAddress">
+            <bean class="com.mongodb.ServerAddress">
+                <!--<constructor-arg index="0" name="host" value="${mongodb.host}"/>-->
+                <!--<constructor-arg index="1" name="port" value="${mongodb.port}" type="int"/>-->
+                <constructor-arg index="0" name="host" value="${mongodb.host}"/>
+                <constructor-arg index="1" name="port" value="${mongodb.port}" type="int"/>
+            </bean>
+            <!--
+            <bean class="com.mongodb.ServerAddress">
+                <constructor-arg index="0" name="host" value="192.168.1.151"/>
+                <constructor-arg index="1" name="port" value="20001" type="int"/>
+            </bean>
+            <bean class="com.mongodb.ServerAddress">
+                <constructor-arg index="0" name="host" value="192.168.1.151"/>
+                <constructor-arg index="1" name="port" value="20002" type="int"/>
+            </bean>
+            <bean class="com.mongodb.ServerAddress">
+                <constructor-arg index="0" name="host" value="192.168.1.151"/>
+                <constructor-arg index="1" name="port" value="20003" type="int"/>
+            </bean>
+            -->
+        </list>
+    </property>
+    <property name="credentials">
+        <list value-type="com.drink.cornerstone.mongodb.Credential">
+         <bean class="com.drink.cornerstone.mongodb.Credential">
+             <property name="mechanism" value="MONGODB-CR"/>
+             <property name="source" value="filedb"/>
+             <property name="password" value="${mongodb.filedb.password}"/>
+             <property name="userName" value="${mongodb.filedb.userName}"/>
+          </bean>
+       </list>
+    </property>
+    <property name="requiredReplicaSetName" value="rs1"/>
+    <property name="defaultReadPreference" value="secondaryPreferred"/>
+</bean>
+    <bean id="gridFsTemplate" init-method="init" class="com.drink.cornerstone.mongodb.GridFsTemplate">
+        <property name="mongoConnection" ref="mongoConnection"/>
+        <property name="dbName" value="${mongodb.filedb.dbName}"/>
+        <property name="bucket" value="photo"/>
+    </bean>
+    <bean id="logTemplate" init-method="init" class="com.drink.cornerstone.mongodb.LogTemplate">
+        <property name="mongoConnection" ref="mongoConnection"/>
+        <property name="dbName" value="${mongodb.filedb.dbName}"/>
+    </bean>
+    <bean id="statisticTemplate" init-method="init" class="com.drink.cornerstone.mongodb.StatisticTemplate">
+        <property name="mongoConnection" ref="mongoConnection"/>
+        <property name="dbName" value="${mongodb.filedb.dbName}"/>
+    </bean>
+    <bean id="mongoFileStrategy"  class="com.drink.cornerstone.file.MongoFileStrategy">
+        <property name="gridFsTemplate" ref="gridFsTemplate"/>
+    </bean>
+
+</beans>

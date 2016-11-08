@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+
+<generatorConfiguration>
+    <context id="drink" targetRuntime="MyBatis3Simple">
+
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+        <plugin type="com.drink.cornerstone.persistency.mybatis.generator.plugins.ChanageMapperNamePlugin"/>
+        <plugin type="com.drink.cornerstone.persistency.mybatis.generator.plugins.MysqlPagingPlugin"/>
+
+
+        <commentGenerator>
+            <property name="suppressDate" value="true" /> <!-- 是否生成注释代时间戳-->
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/direct_selling?useUnicode=true&amp;characterEncoding=utf-8"
+                        userId="root" password="123"/>
+
+
+        <!-- 指定生成的类型为java类型，避免数据库中number等类型字段 -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="true"/>
+        </javaTypeResolver>
+
+        <!-- 生成model模型，对应的包，存放位置可以指定具体的路径,如/ProjectName/src，也可以使用MAVEN来自动生成 -->
+        <javaModelGenerator targetPackage="com.drink.model"
+                            targetProject="../model/src/gen/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaModelGenerator>
+
+        <!--对应的xml mapper文件  -->
+        <sqlMapGenerator targetPackage="com.drink.dao"
+                         targetProject="../dao/src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 对应的dao接口 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.drink.dao"
+                             targetProject="../dao/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <table tableName="member" domainObjectName="Member"/>
+        <table tableName="user" domainObjectName="User"/>
+        <table tableName="reward" domainObjectName="Reward"/>
+        <table tableName="member_level" domainObjectName="MemberLevel"/>
+        <table tableName="public_row" domainObjectName="PublicRow"/>
+    </context>
+</generatorConfiguration>

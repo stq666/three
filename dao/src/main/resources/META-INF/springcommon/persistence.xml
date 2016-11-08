@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+
+
+    <bean name="recSubDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="${recsubdb.url}"/>
+        <property name="username" value="${recsubdb.username}"/>
+        <property name="password" value="${recsubdb.password}"/>
+    </bean>
+
+    <bean id="recsubTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="recSubDataSource"/>
+    </bean>
+
+    <bean id="recsubSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="recSubDataSource"/>
+        <property name="configLocation" value="classpath:mybatis-configuration.xml"></property>
+    </bean>
+    <bean id="recsubSqlSession"
+          class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="recsubSqlSessionFactory"/>
+    </bean>
+    <bean id="recsubNameGenerator" class="com.drink.cornerstone.persistency.mybatis.ClassNameBeanNameGenerator"/>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.drink.dao"/>
+        <property name="sqlSessionFactoryBeanName" value="recsubSqlSessionFactory"/>
+        <property name="nameGenerator" ref="recsubNameGenerator"></property>
+    </bean>
+    <!--
+        <bean id="userMapper" class="org.mybatis.spring.requestMapper.MapperFactoryBean">
+            <property name="mapperInterface" value="UserMapper" />
+            <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+        </bean>
+    -->
+</beans>

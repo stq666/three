@@ -1,0 +1,217 @@
+<style>
+    #holder{ border: none; left: 0; top: 0}
+    tspan{ font-size: inherit;}
+    .showconfig{ background: #fff}
+    .content_r1{ width:90%; height:auto;float:left; background: #fff;border-left:1px solid #e4e5e9;}
+    .structure_tit{ height:53px; line-height:53px; width:97%; margin:10px 0 10px 10px; background:#eee}
+    .structure_tit button{background: #fff;width: 100px;height: 30px;text-align: center;line-height: 30px;border: none;margin-left: 10px;border: 1px solid #E6E7EC;border-radius: 3px;}
+    .stru_btn{ padding: 0 15px; background: #0099cb; border:none;border-radius: 5px;color: #fff; float: right }
+
+    .stru_btn:hover{ background: #31a2e8}
+    .structure_tit button:hover{background:#E6E7EC;}
+    .structure_tit a{margin-left: 10px;}
+    .structure_tit_x{ height:33px; line-height:33px; width:97%; margin:0 0 10px 10px; }
+
+    .structure_tit_x button{ float:right; background:#0099cb; padding:0 30px; border:none; color:#fff}
+    .structure_cont{ margin:0 0 10px 10px;position: relative;overflow: hidden;}
+
+    .structrue_span{ display: block;height: 30px; margin-left: 0px;width: 50%;float: left}
+
+    .structrue_span input{ float: left; margin-top: 11px;}
+
+    #structure_select{ margin-left:3%}
+    .stru_btn:hover{ background: #31a2e8}
+    #holder {
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        width : 100%;
+        height: 600px;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        position:  relative;
+        top:-70px;
+        left:-20px;
+    }
+
+    #holder2 {
+        z-index: 1;
+    }
+    #holder1 {
+        z-index: 2;
+        position: absolute;
+        width : 60px;
+        height: 400px;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        top:-70px;
+        left:-10px;
+    }
+</style>
+    <p class="right_cont_p"></p>
+  <ul id="gsTree" ng-show="false"></ul>
+<div class="content_r1">
+    <h2 class="structure_tit">
+        <a href="javascript:void(0)" id="btn_direction_toggle" class="btn btn-default" role="button">纵向显示</a>
+        <!--<a href="javascript:void(0)" id="btn_deptshow" class="btn btn-default" role="button">显示设置</a>-->
+        <!--<a href="javascript:void(0)" id="btn_export_image" class="btn btn-default" role="button">导出图片</a>-->
+    </h2>
+    <p class="structure_tit_x"><span class="structrue_span"><input id="checkbox_expand_all" type="checkbox">&nbsp;展开所有会员</span>
+        <a href="javascript:void(0)" id="btn_fullscreen" class="stru_btn" role="button">全屏显示</a>
+    </p>
+    <div class="structure_cont" >
+        <div id="holder1" style="height: 200px;top:1px">
+        </div>
+        <div id="holder2">
+            <div id="holder"  style="top:1px;">
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive popup hide" id="popup_saveimage_area">
+        <button type="button" class="btn btn-link" id="btn_close_popup">
+            关闭
+        </button>
+        <a id="savedimg_anchor" download="图片.png">
+            <img id="savedimg" style="vertical-align:middle" title="点击保存" />
+        </a>
+        <div style="display: none;" class="hide">
+            <canvas width="900" height="480" id="tempcanvas"></canvas>
+            <iframe id="savefile"></iframe>
+        </div>
+    </div>
+    <!--span></span-->
+    <div id="tip_holder_template_mgr" class="tip_holder hide lujingtu_cont_div1" style="border-radius: 5px;width: 108px">
+        <!--<img class="close" src="./image/close_32.png" />-->
+        <!--<ul class="users">-->
+        <!--<li ng-repeat="data in mems" class="mgr">-->
+        <!--<a target="_blank" href="#/memmanage/archiveedit/{{data.id}}"><img src="{{data.image}}" style="width:60px;height: 60px;" />-->
+        <!--<span>{{data.membername}}</span></a>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <div class="lujingtu_border1">
+            <dl ng-repeat="data in mems">
+                <dt><a target="_blank" href="#/mem/develop/membase/{{data.id}}"><img src="{{data.image==null || data.image==''?'images/morentouxiang.png':imageurl+'/'+data.image}}" style="width:30px;height: 30px;" /></a></dt>
+                <dd><a target="_blank" href="#/mem/develop/membase/{{data.id}}"><span>{{data.membername}}</span></a></dd>
+            </dl>
+        </div>
+        <img src="images/xiugai_img1.png" class="lujingtu_img" />
+        <!--<img src="images/xiugai_img2.png" class="lujingtu_img1 close" style="opacity: 1" />-->
+    </div>
+
+    <div id="tip_holder_template_emp" class="tip_holder hide lujingtu_cont_div" style="border-radius: 5px">
+        <!--<img class="close" src="./image/close_32.png" />-->
+        <!--<ul class="users">-->
+        <!--<li class="emp" ng-repeat="data in occs">-->
+        <!--<a target="_blank" href="#/org/occts/base/{{data.id}}"><img src="image/m_24.png" style="width:60px;height: 60px;" /><span>{{data.name}}</span></a>-->
+        <!--</li>-->
+        <!--</ul>  "  -->
+        <ul class="lujingtu_border">
+            <a target="_blank" href="#/mem/occwork/occallot/{{data.id}}">
+                <li ng-repeat="data in occs">
+                    <span>{{data.name}}</span>
+                </li>
+            </a>
+        </ul>
+        <img src="images/xiugai_img1.png" class="lujingtu_img" />
+        <!--<img src="images/xiugai_img2.png" class="lujingtu_img1 close" style="opacity: 1" />-->
+    </div>
+    <div id="showconfig_area" class="showconfig hide" style="height: auto;border-radius: 10px;border: 1px solid #eee">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">提示</h4>
+        </div>
+        <div class="modal-body" style="text-align: center">
+            <input type="checkbox" id="showmgrtitle"/> 显示负责人职位 <br/>
+            <input type="checkbox" id="showmgrname"/> 显示负责人姓名 <br/>
+        </div>
+        <p class="modal-footer">
+            <button id="btn_save_showconfig" class="btn btn-primary">确定</button>
+        </p>
+    </div>
+</div>
+   <!--添加员工-->
+<div class="modal fade" id="addModal"  data-backdrop="static">
+    <form>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"  ng-click="cancelAdd()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">会员注册</h4>
+                </div>
+                <div class="modal-body" style="height: 400px;">
+                    <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
+                        <label class="col-sm-2 control-label" style="text-align: right;"><a style="color: #f00;">*</a>员工编号</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" ng-model="member.serialnumber" placeholder="" maxlength="30" disabled>
+                            <span ng-show="errorSerFlag" style="color: red;">{{errorSerMessage}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
+                        <label class="col-sm-2 control-label" style="text-align: right;"><a style="color: #f00;">*</a>姓名</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" ng-model="member.name" placeholder="" maxlength="30" required >
+                        </div>
+                    </div>
+                    <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
+                        <label class="col-sm-2 control-label" style="text-align: right;"><a style="color: #f00;">*</a>性别</label>
+                        <div class="col-sm-10">
+                            <select ng-model="sexs" ng-init="options1=[{'name':'男','id':0},{'name':'女','id':1}]" required ng-options="v.name for v in options1" class="form-control">
+                                <option value="">-- 请选择 --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
+                        <label class="col-sm-2 control-label" style="text-align: right;"><a style="color: #f00;">*</a>身份证号</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="身份证号必填" ng-model="member.idcard" required>
+                        </div>
+                    </div>
+                    <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
+                        <label class="col-sm-2 control-label" style="text-align: right;">微信号</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="" ng-model="member.wechat" maxlength="30">
+                        </div>
+                    </div>
+                    <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
+                        <label class="col-sm-2 control-label" style="text-align: right;">支付宝</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="" ng-model="member.alipay" maxlength="30">
+                        </div>
+                    </div>
+                    <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
+                        <label class="col-sm-2 control-label" style="text-align: right;">qq号</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="" ng-model="member.qq" maxlength="30">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
+                        <label class="col-sm-2 control-label" style="text-align: right;"><a style="color: #f00;">*</a>银行卡号</label>
+                        <div class="col-sm-10">
+                            <input  class="form-control" placeholder="银行卡号必填" ng-model="member.cardno" type="text" maxlength="50" required >
+                            <span ng-show="errorEmailFlag" style="color: red;">{{errorEmailMessage}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
+                        <label class="col-sm-2 control-label" style="text-align: right;"><a style="color: #f00;">*</a>手机</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" placeholder="" ng-model="member.telphone" type="text" maxlength="11" required ng-blur="judgePhone()">
+                            <span ng-show="errorPhoneFlag" style="color: red;">{{errorPhoneMessage}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
+                        <label class="col-sm-2 control-label" style="text-align: right;"><a style="color: #f00;">*</a>推荐人编号</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" placeholder="" ng-model="member.pserialnumber" type="text" maxlength="11" disabled>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary"  style="background: #6f2d90;" ng-disabled=" member.name==null || member.idcard==null || member.cardno==null || member.telphone==null || sexs==null  " ng-click="saveMember()">确认提交</button>
+                    <button type="button" class="btn btn-default" ng-click="cancelAdd()">取消</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </form>
+</div>
+
