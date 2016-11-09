@@ -1,7 +1,6 @@
 package com.drink.security;
 
 
-import com.drink.model.User;
 import com.drink.service.UserService;
 import org.apache.shiro.authc.AccountException;
 import org.apache.shiro.realm.service.AuthenticationService;

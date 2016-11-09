@@ -18,7 +18,7 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/direct_selling?useUnicode=true&amp;characterEncoding=utf-8"
+                        connectionURL="jdbc:mysql://localhost:3306/jiu_three?useUnicode=true&amp;characterEncoding=utf-8"
                         userId="root" password="123"/>
 
 
@@ -44,10 +44,9 @@
                              targetProject="../dao/src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
-        <table tableName="member" domainObjectName="Member"/>
-        <table tableName="user" domainObjectName="User"/>
-        <table tableName="reward" domainObjectName="Reward"/>
-        <table tableName="member_level" domainObjectName="MemberLevel"/>
-        <table tableName="public_row" domainObjectName="PublicRow"/>
+        <table tableName="sys_user" domainObjectName="SysUser"/>
+        <table tableName="three_member" domainObjectName="ThreeMember"/>
+        <table tableName="three_reward" domainObjectName="ThreeReward"/>
+        <table tableName="three_group" domainObjectName="ThreeGroup"/>
     </context>
 </generatorConfiguration>
