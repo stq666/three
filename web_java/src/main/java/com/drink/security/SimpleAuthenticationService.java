@@ -1,6 +1,7 @@
 package com.drink.security;
 
 
+import com.drink.model.SysUser;
 import com.drink.service.UserService;
 import org.apache.shiro.authc.AccountException;
 import org.apache.shiro.realm.service.AuthenticationService;
@@ -25,11 +26,13 @@ public class SimpleAuthenticationService implements AuthenticationService {
 	public SaltedPassword findSaltedPasswordByUserName(String username) throws Exception {
 		SaltedPassword saltedPassword = null;
 		try {
-			User user = userService.findUserByName(username);
+			SysUser tUser = new SysUser();
+			tUser.setLoginName(username);
+			SysUser user = userService.findAllByCondition(tUser);
 			if (user == null) {
                 throw new Exception("user[" + username + "] doesnt exists.");
             }else{
-                saltedPassword = new SaltedPassword(user.getId(), user.getPassword(),user.getLoginname());
+                saltedPassword = new SaltedPassword(user.getId(), user.getPassword(),user.getLoginName());
             }
 		} catch (Exception ex) {
 			throw new AccountException("findSaltedPasswordByUserName error:" + ex.getMessage());

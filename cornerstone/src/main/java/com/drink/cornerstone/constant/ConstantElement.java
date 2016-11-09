@@ -6,7 +6,7 @@ package com.drink.cornerstone.constant;
 public interface ConstantElement {
 
     static final String _USERINFO = "_USERINFO";
-    static final String _SERIALNUMBER = "_SERIALNUMBER";
+    static final String _SERIALNUMBER = "_serialnumber";
     static final String SESSION_FORCE_LOGOUT_KEY = "forceLogout";
     static final String errorCommonCode = "401";
     static final String errorForbidCode = "403";
