@@ -19,29 +19,12 @@ public interface ControllerNames {
     //登陆模块
     static final String securityController="/security";
     static final String securityController_login="/login";
-    static final String securityController_logout="/logout";
-
-    static final String securityController_findUserInfo="/findUserInfo";
-    static final String securityController_updatePwd="/updatePwd";
 
 
     //员工
     static final String memberController="/member";
-    static final String memberController_findPageMember="/findPageMember";
-    static final String memberController_findPageReward="/findPageReward";
-    static final String memberController_findMaxSerialNumber="/findMaxSerialNumber";
-    static final String memberController_findLonginMember="/findLonginMember";
-    static final String memberController_judgeLoginName="/judgeLoginName";
-    static final String memberController_registerMember="/registerMember";
-    static final String memberController_findStructurlAllMemberById="/findStructurlAllMemberById";
-    static final String memberController_showRewordDetail="/showRewordDetail";
-    static final String memberController_updateRewardStatus="/updateRewardStatus";
-    static final String memberController_resetPwd="/resetPwd";
-    static final String memberController_findEveryDayMoney="/findEveryDayMoney";
-    static final String memberController_saveMoneyByRewardDate="/saveMoneyByRewardDate";
-    //奖励
-    static final String rewardController="/reward";
-    static final String rewardController_findPageMoneyByCondition="/findPageMoneyByCondition";
+    static final String memberController_saveThreeGroup="/saveThreeGroup";
+    static final String memberController_saveThreeMember="/saveThreeMember";
 
 
 

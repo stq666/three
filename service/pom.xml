@@ -190,17 +190,17 @@
                     </systemProperties>
                 </configuration>
             </plugin>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <forkMode>always</forkMode>
-                    <!-- argLine>${surefire.argLine}</argLine -->
-                    <runOrder>alphabetical</runOrder>
-                    <includes>
-                        <include>**/*Test.*</include>
-                    </includes>
-                </configuration>
-            </plugin>
+            <!--<plugin>-->
+                <!--<artifactId>maven-surefire-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--<forkMode>always</forkMode>-->
+                    <!--&lt;!&ndash; argLine>${surefire.argLine}</argLine &ndash;&gt;-->
+                    <!--<runOrder>alphabetical</runOrder>-->
+                    <!--<includes>-->
+                        <!--<include>**/*Test.*</include>-->
+                    <!--</includes>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 
