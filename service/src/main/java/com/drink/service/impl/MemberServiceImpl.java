@@ -1,7 +1,6 @@
 package com.drink.service.impl;
 
 import com.drink.cornerstone.util.MD5;
-import com.drink.cornerstone.util.StringUtil;
 import com.drink.dao.SysUserMapper;
 import com.drink.dao.ThreeGroupMapper;
 import com.drink.dao.ThreeMemberMapper;
@@ -12,7 +11,6 @@ import com.drink.model.ThreeMember;
 import com.drink.model.ThreeReward;
 import com.drink.module.ThreeMemberVo;
 import com.drink.service.MemberService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
