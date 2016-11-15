@@ -58,11 +58,11 @@ public class MemberController {
      * @param vo
      * @return
      */
-    @RequestMapping(value = ControllerNames.memberController_saveThreeMember ,method = RequestMethod.POST)
-    public @ResponseBody JSONObject saveThreeMember(@ModelAttribute ThreeMemberVo vo){
+    @RequestMapping(value = ControllerNames.controllerSave ,method = RequestMethod.POST)
+    public @ResponseBody JSONObject save(@ModelAttribute ThreeMemberVo vo){
         Message msg=new Message();
         try {
-            memberService.saveThreeMember(vo);
+            memberService.save(vo);
             return msg.getResult(true,false,ConstantElement.commonSuccess,null,null);
         }catch (ServiceException e) {
             logger.error("添加抱团成员时失败："+e.getMessage());

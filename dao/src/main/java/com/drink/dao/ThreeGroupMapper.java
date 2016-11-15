@@ -1,6 +1,7 @@
 package com.drink.dao;
 
 import com.drink.daogen.ThreeGroupMapperGen;
+import org.apache.ibatis.annotations.Param;
 
 public interface ThreeGroupMapper extends ThreeGroupMapperGen {
     /**
@@ -14,4 +15,11 @@ public interface ThreeGroupMapper extends ThreeGroupMapperGen {
      * @return
      */
     long selectId();
+
+    /**
+     * 通过主键修改父id
+     * @param id
+     * @param pid
+     */
+    void updatePidById(@Param("id") Long id, @Param("pid") Long pid);
 }

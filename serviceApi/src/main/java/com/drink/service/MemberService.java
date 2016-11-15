@@ -17,5 +17,5 @@ public interface MemberService {
      * 保存成员
      * @param vo
      */
-    void saveThreeMember(ThreeMemberVo vo);
+    void save(ThreeMemberVo vo);
 }

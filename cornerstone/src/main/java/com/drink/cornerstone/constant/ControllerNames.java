@@ -24,7 +24,6 @@ public interface ControllerNames {
     //员工
     static final String memberController="/member";
     static final String memberController_saveThreeGroup="/saveThreeGroup";
-    static final String memberController_saveThreeMember="/saveThreeMember";
 
 
 

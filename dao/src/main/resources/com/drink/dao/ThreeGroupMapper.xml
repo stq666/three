@@ -65,4 +65,9 @@
   <select id="selectId" resultType="java.lang.Long">
      SELECT LAST_INSERT_ID()
   </select>
+  <update id="updatePidById">
+    update three_group
+    set  pid = #{pid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
 </mapper>
