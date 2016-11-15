@@ -85,4 +85,8 @@
     qq, status, alipay, pid, group_id
     from three_member
   </select>
+  <select id="groupId" resultType="java.lang.Long">
+     select group_id
+    from three_member where group_id=#{groupId}
+  </select>
 </mapper>

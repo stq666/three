@@ -22,4 +22,11 @@ public interface ThreeGroupMapper extends ThreeGroupMapperGen {
      * @param pid
      */
     void updatePidById(@Param("id") Long id, @Param("pid") Long pid);
+
+    /**
+     * 获取pid
+     * @param id
+     * @return
+     */
+    Long getPidByGroupId(@Param("id") Long id);
 }

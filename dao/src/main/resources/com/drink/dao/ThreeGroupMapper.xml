@@ -70,4 +70,7 @@
     set  pid = #{pid,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <select id="getPidByGroupId" resultType="java.lang.Long">
+    select  pid from three_group where id=#{id}
+  </select>
 </mapper>
