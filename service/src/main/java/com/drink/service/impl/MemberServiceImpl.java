@@ -179,7 +179,7 @@ public class MemberServiceImpl implements MemberService {
         if(sixGroupId!=null){
             List<Long>sixMids = findMemberByGroupId(sixGroupId);
             if(sixMids!=null && sixMids.size()>0){
-                sevenGroupId = saveReward(sixMids,130,(byte)5,sixGroupId);
+                sevenGroupId = saveReward(sixMids,130,(byte)6,sixGroupId);
             }
         }
         //第七层
@@ -187,14 +187,14 @@ public class MemberServiceImpl implements MemberService {
         if(sevenGroupId!=null){
             List<Long>sevenMids = findMemberByGroupId(sevenGroupId);
             if(sevenMids!=null && sevenMids.size()>0){
-                eightGroupId = saveReward(sevenMids,140,(byte)5,sevenGroupId);
+                eightGroupId = saveReward(sevenMids,140,(byte)7,sevenGroupId);
             }
         }
         //第八层
         if(eightGroupId!=null){
             List<Long>eightMids = findMemberByGroupId(eightGroupId);
             if(eightMids!=null && eightMids.size()>0){
-                saveReward(eightMids,150,(byte)5,eightGroupId);
+                saveReward(eightMids,150,(byte)8,eightGroupId);
             }
         }
     }
