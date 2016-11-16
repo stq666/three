@@ -9,6 +9,8 @@ import com.drink.model.SysUser;
 import com.drink.model.ThreeGroup;
 import com.drink.model.ThreeMember;
 import com.drink.model.ThreeReward;
+import com.drink.module.Page;
+import com.drink.module.ThreeGroupVo;
 import com.drink.module.ThreeMemberVo;
 import com.drink.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,14 +35,6 @@ public class MemberServiceImpl implements MemberService {
     private ThreeRewardMapper threeRewardMapper;
 
 
-    @Override
-    public void saveThreeGroup(ThreeGroup group) {
-        //获取最大的顺序
-        int maxSort = threeGroupMapper.getMaxSort();
-        group.setGroupSort(maxSort++);
-        group.setCreateTime(new Date());
-        threeGroupMapper.insert(group);
-    }
 
     @Override
     public void save(ThreeMemberVo vo) {
@@ -49,7 +43,6 @@ public class MemberServiceImpl implements MemberService {
         updateThreeGroupPid(vo.getGroupId(),vo.getGroupPid());
         saveThreeReward(vo.getGroupPid(),vo.getPid());
     }
-
 
 
     /**

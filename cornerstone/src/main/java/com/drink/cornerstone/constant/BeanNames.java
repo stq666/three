@@ -11,14 +11,8 @@ public interface BeanNames {
     static final String userService="userService";
     static final String memberService="memberService";
     static final String rewardService="rewardService";
+    static final String threeGroupService="threeGroupService";
 
-    //定时执行
-    static final String subQuartzService="subQuartzService";
-
-    //认可
-    static final String subRecognitionService="subRecognitionService";
-    //部门
-    static final String subOrganizationService="subOrganizationService";
 
 
 
