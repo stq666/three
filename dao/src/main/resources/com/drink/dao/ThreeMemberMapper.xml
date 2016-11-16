@@ -89,4 +89,7 @@
      select group_id
     from three_member where group_id=#{groupId}
   </select>
+  <select id="selectNameByGroupId" resultType="java.lang.String">
+    SELECT GROUP_CONCAT(name) as concatName FROM  three_member where group_id=#{groupId} GROUP BY group_id
+  </select>
 </mapper>

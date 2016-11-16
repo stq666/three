@@ -1,7 +1,10 @@
 package com.drink.dao;
 
 import com.drink.daogen.ThreeGroupMapperGen;
+import com.drink.module.ThreeGroupVo;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ThreeGroupMapper extends ThreeGroupMapperGen {
     /**
@@ -29,4 +32,8 @@ public interface ThreeGroupMapper extends ThreeGroupMapperGen {
      * @return
      */
     Long getPidByGroupId(@Param("id") Long id);
+
+    int findCountByCondition(ThreeGroupVo vo);
+
+    List<ThreeGroupVo> findDataByCondition(ThreeGroupVo vo);
 }

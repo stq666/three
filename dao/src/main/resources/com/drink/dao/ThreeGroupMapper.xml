@@ -73,4 +73,21 @@
   <select id="getPidByGroupId" resultType="java.lang.Long">
     select  pid from three_group where id=#{id}
   </select>
+  <select id="findCountByCondition" parameterType="com.drink.module.ThreeGroupVo" resultType="java.lang.Integer">
+    SELECT count(g.id) from three_group g
+    <where>
+      <if test="groupName!=null and groupName!=''">
+        g.group_name=#{groupName}
+      </if>
+    </where>
+  </select>
+  <select id="findDataByCondition" parameterType="com.drink.module.ThreeGroupVo" resultType="com.drink.module.ThreeGroupVo">
+    SELECT g.id,g.group_name,g.pid,g.group_sort,g.create_time from three_group g
+    <where>
+      <if test="groupName!=null and groupName!=''">
+        g.group_name=#{groupName}
+      </if>
+    </where>
+    order by g.group_sort asc  limit #{start} , #{limit}
+  </select>
 </mapper>
