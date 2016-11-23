@@ -1,6 +1,28 @@
 
 
-/**********************��Ա��Ϣά��***************************/
+body {	margin:0;	padding:0;	font-family:Arial, Helvetica, sans-serif;	font-size:12px; background: url(../images/bg1.jpg) repeat-x #3B160E;}
+
+/***********************登陆的css**********************************/
+#three{ width:auto; margin:0 auto; background:url(../images/Member.gif) no-repeat center top ; height:700px;text-align:center;}
+#threelogo{ width:100%;  padding-top:45px; text-align:center;}
+#threelogin{
+    width:468px;
+    height:230px;
+    background:url(../images/loginbg.gif) no-repeat center top;
+    text-align:left;
+    margin:0px auto;
+    padding-top:90px;
+    padding-left:70px;
+}
+#threelogin dl{ width:100%; float:left; height:auto; height:34px; padding-bottom:6px; margin:0px;}
+#threelogin dt{ width:95px; float:left; height:auto; text-align:right; padding-top:9px; margin:0px;}
+#threelogin dd{ width:200px; float:left; height:auto; padding-left:5px;  margin:0px;}
+.loginname{ width:180px; height:24px;  border:0; background:url(../images/index_12.gif) no-repeat; padding:5px 10px;}
+.loginpas{ width:180px; height:24px;  border:0; background:url(../images/index_16.gif) no-repeat; padding:5px 10px;}
+.loginbtn{ width:85px; height:37px; float:left; border:0; background:url(../images/loginbtn.gif) no-repeat; cursor:pointer; margin-top:15px;}
+
+
+/****************公共部分css*************************/
 .vrex_main{width: 1488px; height: auto; /*float: left;*/ background: #f2f2f2; margin: 0 auto; display: table; min-height: 798px;}
 
 .vrec_hreder{ width: 1435px; height: auto; float: left; background: url(../images/vrec/jiulogo.png) no-repeat left center; padding: 2%;}
@@ -132,12 +154,12 @@
 
 .weihuxingwei_div_left span{float: left; background: #fff; border: 1px solid #ccc; border-radius: 5px; height: 30px; margin-bottom: 10px;}
 
-.weihuxingwei_div_left span input{width: 200px; height: 28px; line-height: 28px; border: none; background: none; float: left;} 
+.weihuxingwei_div_left span input{width: 200px; height: 28px; line-height: 28px; border: none; background: none; float: left;}
 
-.weihuxingwei_div_left h4{ width: 100%; float: left; font-size: 14px; line-height: 30px;}      
+.weihuxingwei_div_left h4{ width: 100%; float: left; font-size: 14px; line-height: 30px;}
 
-.weihuxingwei_div_left h4 a{ float: right; display: block; width: 13%;}            
- 
+.weihuxingwei_div_left h4 a{ float: right; display: block; width: 13%;}
+
 .weihuxingwei_div_img{ width: 5%; float: left; margin: 15% 2%;}
 
 .weihuxingwei_left_div{ width: 100%; float: left;}
