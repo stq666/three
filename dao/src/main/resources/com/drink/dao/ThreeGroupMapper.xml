@@ -82,7 +82,7 @@
     </where>
   </select>
   <select id="findDataByCondition" parameterType="com.drink.module.ThreeGroupVo" resultType="com.drink.module.ThreeGroupVo">
-    SELECT g.id,g.group_name,g.pid,g.group_sort,g.create_time from three_group g
+    SELECT g.id,g.group_name as groupName,g.pid,g.group_sort as groupSort,g.create_time as createTime from three_group g
     <where>
       <if test="groupName!=null and groupName!=''">
         g.group_name=#{groupName}
