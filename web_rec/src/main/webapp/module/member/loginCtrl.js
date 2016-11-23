@@ -6,7 +6,7 @@ member.controller('LoginCtrl', ['$scope','$rootScope','SecurityControllerService
         var  objuser= $cookieStore.get("user");
         if(objuser!=null&&objuser!=undefined){
             $rootScope.adminname=objuser.loginName;
-            localStorageService.set("ifmanager",objuser.ifmanager);
+            localStorageService.set("ifmanager",objuser.ifManager);
         }else{
             $rootScope.adminname='';
         }
@@ -29,7 +29,6 @@ member.controller('LoginCtrl', ['$scope','$rootScope','SecurityControllerService
      * 登陆
      */
     $scope.login = function (user) {
-        debugger;
         var onError=function (data, status) {
             $scope.show_result=true;
             $scope.result_msg = data.result.errorCode;
