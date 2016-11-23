@@ -22,4 +22,18 @@ public interface ThreeMemberMapper extends ThreeMemberMapperGen {
     String selectNameByGroupId(@Param("groupId") Long groupId);
 
     List<ThreeMemberVo> selectThreeMemberByGroupId(@Param("groupId")Long groupId);
+
+    /**
+     * 获取成员总数
+     * @param vo
+     * @return
+     */
+    int findCountByCondition(ThreeMemberVo vo);
+
+    /**
+     * 分页获取成员信息
+     * @param vo
+     * @return
+     */
+    List<ThreeMemberVo> findDataByCondition(ThreeMemberVo vo);
 }

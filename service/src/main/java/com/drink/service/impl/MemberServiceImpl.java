@@ -1,5 +1,6 @@
 package com.drink.service.impl;
 
+import com.drink.cornerstone.constant.ConstantElement;
 import com.drink.cornerstone.util.MD5;
 import com.drink.dao.SysUserMapper;
 import com.drink.dao.ThreeGroupMapper;
@@ -24,9 +25,8 @@ import java.util.List;
  */
 @Service("memberService")
 public class MemberServiceImpl implements MemberService {
-
     @Autowired
-    private ThreeGroupMapper threeGroupMapper;
+    private  ThreeGroupMapper threeGroupMapper;
     @Autowired
     private ThreeMemberMapper threeMemberMapper;
     @Autowired
@@ -47,6 +47,20 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public List<ThreeMemberVo> findThreeMemberByGroupId(Long groupId) {
         return threeMemberMapper.selectThreeMemberByGroupId(groupId);
+    }
+
+    @Override
+    public Page<ThreeMemberVo> findPageThreeMemberByCondition(Page<ThreeMemberVo> page) {
+        int start = page.getCurrentNum();
+        int end=page.getPageSize()> ConstantElement.pageSize?ConstantElement.pageSize:page.getPageSize();
+        ThreeMemberVo vo = page.getObj();
+        int totalsize=threeMemberMapper.findCountByCondition(vo);
+        page.calculate(totalsize, start, end);
+        vo.setStart(page.getStartPos());
+        vo.setLimit(page.getEndPos());
+        List<ThreeMemberVo> list=threeMemberMapper.findDataByCondition(vo);
+        page.setDatas(list);
+        return page;
     }
 
 

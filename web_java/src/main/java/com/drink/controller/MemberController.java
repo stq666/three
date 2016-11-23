@@ -72,7 +72,27 @@ public class MemberController {
         }
     }
 
-
+    /**
+     * 分页获取成员
+     * @param page
+     * @param vo
+     * @return
+     */
+    @RequestMapping(value = ControllerNames.memberController_findPageThreeMemberByCondition ,method = RequestMethod.POST)
+    public @ResponseBody JSONObject findPageThreeMemberByCondition(@ModelAttribute Page<ThreeMemberVo> page, @ModelAttribute ThreeMemberVo vo){
+        Message msg=new Message();
+        try {
+            page.setObj(vo);
+            page=memberService.findPageThreeMemberByCondition(page);
+            return msg.getResult(true,false,page,null,null);
+        }catch (ServiceException e) {
+            logger.error("分页获取成员时失败："+e.getMessage());
+            return msg.getResult(false,true,null,ConstantElement.commonError,ConstantElement.errorForbidCode);
+        }catch (Exception e){
+            logger.error("分页获取成员时失败："+e.getMessage());
+            return msg.getResult(false,true,null,ConstantElement.commonError,ConstantElement.errorForbidCode);
+        }
+    }
 
 
 

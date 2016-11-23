@@ -24,6 +24,7 @@ public interface ControllerNames {
     //员工
     static final String memberController="/member";
     static final String memberController_findMemberByGroupId="/findMemberByGroupId";
+    static final String memberController_findPageThreeMemberByCondition="/findPageThreeMemberByCondition";
 
 
     //组

@@ -23,4 +23,11 @@ public interface MemberService {
      * @return
      */
     List<ThreeMemberVo> findThreeMemberByGroupId(Long groupId);
+
+    /**
+     * 分页获取成员
+     * @param page
+     * @return
+     */
+    Page<ThreeMemberVo> findPageThreeMemberByCondition(Page<ThreeMemberVo> page);
 }
