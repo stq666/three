@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+@media (max-width: 767px) {
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	color: #333;
+	paddig-top:0;
+}
+.navbar-fixed-top {
+	padding-right: 0;
+}
+.texphone {
+	float: left !important;
+	max-width: 500px;
+}
+.pull-left {
+	padding-top: 0px;
+}
+.col-xs-9 {
+	width: 100%;
+}
+.container-narrow {
+	width: 100%
+}
+.teraace {
+	width: 100%;
+	padding: 20px 65px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+.table thead>tr>th, .table tbody>tr>th, .table tfoot>tr>th, .table thead>tr>td, .table tbody>tr>td, .table tfoot>tr>td {
+	padding: 6px;
+	line-height: 1.428571429;
+	vertical-align: top;
+	border-top: 1px solid #ddd;
+}
+.form-group {
+	margin-bottom: 0;
+	padding-bottom: 0;
+	padding-top: 15px;
+}
+.width{width:225px;}
+.width .gle{
+	line-height:0px;
+}
+.user a{
+	max-width:320px;
+	text-align:left;
+}
+}
+.container {
+    max-width: 100%;
+}
+
