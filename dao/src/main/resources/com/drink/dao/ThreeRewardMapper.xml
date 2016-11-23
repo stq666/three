@@ -59,4 +59,7 @@
     select id, mid, money, createtime, type
     from three_reward
   </select>
+  <select id="selectTotalRewardByMid" resultType="java.lang.Integer">
+    select sum(money) from three_reward where mid=#{mid}
+  </select>
 </mapper>

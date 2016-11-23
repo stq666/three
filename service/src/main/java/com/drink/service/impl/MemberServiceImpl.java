@@ -59,6 +59,12 @@ public class MemberServiceImpl implements MemberService {
         vo.setStart(page.getStartPos());
         vo.setLimit(page.getEndPos());
         List<ThreeMemberVo> list=threeMemberMapper.findDataByCondition(vo);
+        if(list!=null && list.size()>0){
+            for(ThreeMemberVo tm:list){
+                if(tm==null){continue;}
+                vo.setTotalReward(threeRewardMapper.selectTotalRewardByMid(vo.getId()));
+            }
+        }
         page.setDatas(list);
         return page;
     }

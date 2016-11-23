@@ -11,6 +11,15 @@ public class ThreeMemberVo extends ThreeMember {
     private Integer start;
     private Integer limit;
     private String groupName;
+    private Integer totalReward;
+
+    public Integer getTotalReward() {
+        return totalReward;
+    }
+
+    public void setTotalReward(Integer totalReward) {
+        this.totalReward = totalReward;
+    }
 
     public String getGroupName() {
         return groupName;
