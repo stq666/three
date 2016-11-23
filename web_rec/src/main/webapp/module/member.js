@@ -11,6 +11,7 @@ member.config([ '$stateProvider', '$urlRouterProvider',function($stateProvider, 
             .state('base.member', {url: "/member",templateUrl:"module/member/member.tpl.html",controller: 'MemberCtrl',permissions: ['user']})
             .state('base.structure', {url: "/structure/:id",templateUrl:"module/member/structure.tpl.html",controller: 'StructureCtrl',permissions: ['user']})
             .state('base.reward', {url: "/reward/:serialnumber",templateUrl:"module/member/reward.tpl.html",controller: 'RewardCtrl',permissions: ['user']})
+            .state('base.group', {url: "/group",templateUrl:"module/member/threegroup.tpl.html",controller: 'ThreeGroupCtrl',permissions: ['user']})
         ;
 
     $urlRouterProvider.otherwise("login");
