@@ -1,6 +1,7 @@
 package com.drink.dao;
 
 import com.drink.daogen.ThreeMemberMapperGen;
+import com.drink.module.ThreeMemberVo;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -19,4 +20,6 @@ public interface ThreeMemberMapper extends ThreeMemberMapperGen {
      * @return
      */
     String selectNameByGroupId(@Param("groupId") Long groupId);
+
+    List<ThreeMemberVo> selectThreeMemberByGroupId(@Param("groupId")Long groupId);
 }

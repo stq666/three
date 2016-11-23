@@ -13,10 +13,7 @@ import com.drink.service.ThreeGroupService;
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -24,7 +21,7 @@ import javax.annotation.Resource;
  * Created by stq on 16-11-16.
  */
 @Controller
-@RequestMapping(ControllerNames.ThreeGroupController)
+@RequestMapping(ControllerNames.threeGroupController)
 public class ThreeGroupController {
     Log logger = LogFactory.getLog(ThreeGroupController.class);
     @Resource(name= BeanNames.threeGroupService)
@@ -35,7 +32,7 @@ public class ThreeGroupController {
      * @param group
      * @return
      */
-    @RequestMapping(value = ControllerNames.memberController_saveThreeGroup ,method = RequestMethod.POST)
+    @RequestMapping(value = ControllerNames.threeGroupController_saveThreeGroup ,method = RequestMethod.POST)
     public @ResponseBody
     JSONObject saveThreeGroup(@ModelAttribute ThreeGroup group){
         Message msg=new Message();
@@ -57,7 +54,7 @@ public class ThreeGroupController {
      * @param vo
      * @return
      */
-    @RequestMapping(value = ControllerNames.memberController_findPageThreeGroupByCondition ,method = RequestMethod.POST)
+    @RequestMapping(value = ControllerNames.threeGroupController_findPageThreeGroupByCondition ,method = RequestMethod.POST)
     public @ResponseBody JSONObject findPageThreeGroupByCondition(@ModelAttribute Page<ThreeGroupVo> page, @ModelAttribute ThreeGroupVo vo){
         Message msg=new Message();
         try {
@@ -71,6 +68,23 @@ public class ThreeGroupController {
             logger.error("获取抱团组列表时失败："+e.getMessage());
             return msg.getResult(false,true,null,ConstantElement.commonError,ConstantElement.errorForbidCode);
         }
+    }
+    /**
+     * 获取组的结构图
+     * @return
+     */
+    @RequestMapping(value = ControllerNames.threeGroupController_findStructurlByGroupId ,method = RequestMethod.POST)
+    public @ResponseBody JSONObject findStructurlByGroupId(@RequestParam("groupId") Long groupId){
+        Message msg=new Message();
+        try {
+        }catch (ServiceException e) {
+            logger.error("获取抱团组列表时失败："+e.getMessage());
+            return msg.getResult(false,true,null,ConstantElement.commonError,ConstantElement.errorForbidCode);
+        }catch (Exception e){
+            logger.error("获取抱团组列表时失败："+e.getMessage());
+            return msg.getResult(false,true,null,ConstantElement.commonError,ConstantElement.errorForbidCode);
+        }
+        return null;
     }
 
 }

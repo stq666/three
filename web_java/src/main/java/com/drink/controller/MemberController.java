@@ -52,6 +52,26 @@ public class MemberController {
         }
     }
 
+    /**
+     * 获取每组的成员
+     * @param groupId
+     * @return
+     */
+    @RequestMapping(value = ControllerNames.memberController_findMemberByGroupId ,method = RequestMethod.POST)
+    public @ResponseBody JSONObject findMemberByGroupId(@RequestParam("groupId")Long groupId){
+        Message msg=new Message();
+        try {
+            List<ThreeMemberVo>list = memberService.findThreeMemberByGroupId(groupId);
+            return msg.getResult(true,false,list,null,null);
+        }catch (ServiceException e) {
+            logger.error("获取每组的成员时失败："+e.getMessage());
+            return msg.getResult(false,true,null,ConstantElement.commonError,ConstantElement.errorForbidCode);
+        }catch (Exception e){
+            logger.error("获取每组的成员时失败："+e.getMessage());
+            return msg.getResult(false,true,null,ConstantElement.commonError,ConstantElement.errorForbidCode);
+        }
+    }
+
 
 
 

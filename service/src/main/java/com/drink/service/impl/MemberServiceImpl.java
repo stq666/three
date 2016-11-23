@@ -44,6 +44,11 @@ public class MemberServiceImpl implements MemberService {
         saveThreeReward(vo.getGroupPid(),vo.getPid());
     }
 
+    @Override
+    public List<ThreeMemberVo> findThreeMemberByGroupId(Long groupId) {
+        return threeMemberMapper.selectThreeMemberByGroupId(groupId);
+    }
+
 
     /**
      * 保存员工

@@ -23,11 +23,14 @@ public interface ControllerNames {
 
     //员工
     static final String memberController="/member";
-    static final String memberController_saveThreeGroup="/saveThreeGroup";
-    static final String memberController_findPageThreeGroupByCondition="/findPageThreeGroupByCondition";
+    static final String memberController_findMemberByGroupId="/findMemberByGroupId";
 
 
-    static final String ThreeGroupController="/threeGroup";
+    //组
+    static final String threeGroupController="/threeGroup";
+    static final String threeGroupController_saveThreeGroup="/saveThreeGroup";
+    static final String threeGroupController_findPageThreeGroupByCondition="/findPageThreeGroupByCondition";
+    static final String threeGroupController_findStructurlByGroupId="/findStructurlByGroupId";
 
 
 

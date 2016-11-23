@@ -7,6 +7,15 @@ import com.drink.model.ThreeMember;
  */
 public class ThreeMemberVo extends ThreeMember {
     private Long groupPid;
+    private String pName;
+
+    public String getpName() {
+        return pName;
+    }
+
+    public void setpName(String pName) {
+        this.pName = pName;
+    }
 
     public Long getGroupPid() {
         return groupPid;
