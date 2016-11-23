@@ -1,7 +1,10 @@
 package com.drink.dao;
 
 import com.drink.daogen.ThreeRewardMapperGen;
+import com.drink.module.ThreeRewardVo;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ThreeRewardMapper extends ThreeRewardMapperGen {
     /**
@@ -10,4 +13,8 @@ public interface ThreeRewardMapper extends ThreeRewardMapperGen {
      * @return
      */
     Integer selectTotalRewardByMid(@Param("mid") Long mid);
+
+    int findCountByCondition(ThreeRewardVo vo);
+
+    List<ThreeRewardVo> findDataByCondition(ThreeRewardVo vo);
 }

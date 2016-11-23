@@ -65,6 +65,8 @@
 					<controllerClassNames>
 						<controllerClassName>com.drink.controller.SecurityController</controllerClassName>
 						<controllerClassName>com.drink.controller.MemberController</controllerClassName>
+						<controllerClassName>com.drink.controller.ThreeGroupController</controllerClassName>
+						<controllerClassName>com.drink.controller.RewardController</controllerClassName>
                     </controllerClassNames>
 				</configuration>
 			</plugin>

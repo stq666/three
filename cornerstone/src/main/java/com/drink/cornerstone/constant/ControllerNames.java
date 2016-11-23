@@ -33,6 +33,10 @@ public interface ControllerNames {
     static final String threeGroupController_findPageThreeGroupByCondition="/findPageThreeGroupByCondition";
     static final String threeGroupController_findStructurlByGroupId="/findStructurlByGroupId";
 
+    //奖金
+    static final String rewardController="/rewardController";
+    static final String rewardController_findPageThreeRewardByCondition="/rewardController_findPageThreeRewardByCondition";
+
 
 
 }
