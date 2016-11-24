@@ -1,4 +1,4 @@
-member.controller('ThreeGroupCtrl', ['$scope','$state','$window','$filter','ThreeGroupControllerService','TableService','localStorageService', function($scope,$state,$window,$filter,ThreeGroupControllerService,TableService,localStorageService) {
+member.controller('ThreeGroupCtrl', ['$scope','$state','$window','$filter','ThreeGroupControllerService','TableService','localStorageService','MemberControllerService', function($scope,$state,$window,$filter,ThreeGroupControllerService,TableService,localStorageService,MemberControllerService) {
 
     $scope.pageSize=20;
     $scope.ifmanager = localStorageService.get('ifmanager');
@@ -53,6 +53,16 @@ member.controller('ThreeGroupCtrl', ['$scope','$state','$window','$filter','Thre
     });
 
     $scope.init();
+    /**
+     * 获取组下的成员
+     * @param groupId
+     */
+    $scope.getMember=function(groupId){
+        var onSuccess=function (data, status) {
+            $scope.mems = data.result.returnObject.list;
+        };
+        MemberControllerService.findMemberByGroupId({groupId:groupId}).then(onSuccess,null);
+    }
     /**
      * 添加
      */

@@ -44,7 +44,7 @@ public class ThreeGroupServiceImpl implements ThreeGroupService {
         if(list!=null && list.size()>0){
             for(ThreeGroupVo tg:list){
                 if(tg==null){continue;}
-                vo.setMemberName(memberMapper.selectNameByGroupId(tg.getId()));
+                tg.setMemberName(memberMapper.selectNameByGroupId(tg.getId()));
             }
         }
         page.setDatas(list);
