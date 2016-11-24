@@ -35,6 +35,9 @@
                 <td data-title="'注册日期'" style="width: 10%">
                     {{data.createTime| date :'yyyy-MM-dd'}}
                 </td>
+                <td data-title="'查看架构图'" style="width: 10%">
+                    <a ng-href="#/base/reward/{{data.id}}"  style="color: green;">{{data.memberName}}</a>
+                </td>
             </tr>
         </table>
     </div>
