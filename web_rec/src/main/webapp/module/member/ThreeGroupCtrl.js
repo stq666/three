@@ -58,8 +58,9 @@ member.controller('ThreeGroupCtrl', ['$scope','$state','$window','$filter','Thre
      * @param groupId
      */
     $scope.getMember=function(groupId){
+        $("#groupMemsDivId").modal('show');
         var onSuccess=function (data, status) {
-            $scope.mems = data.result.returnObject.list;
+            $scope.mems = data.result.returnObject;
         };
         MemberControllerService.findMemberByGroupId({groupId:groupId}).then(onSuccess,null);
     }
