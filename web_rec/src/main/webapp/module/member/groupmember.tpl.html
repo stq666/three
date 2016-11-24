@@ -1,0 +1,51 @@
+<style>
+    .table{ margin-bottom: 0}
+
+    .renyuan_tab > div.ng-isolate-scope{ display: none}
+
+    .ng-table th{ text-align: left}
+
+    .table>thead>tr>th{ vertical-align: middle;}
+
+    .table>thead>tr>th > div span{ font-weight: bold}
+</style>
+    <p class="right_cont_p"></p>
+    <div class="renyuan_tab">
+        <table width="100%" ng-table="tableParams" class="table" >
+            <tr ng-repeat="mem in groupMems">
+                <td data-title="'序号'" >
+                    {{$index+1}}
+                </td>
+                <td data-title="'姓名'" >
+                    {{mem.name}}
+                </td>
+                <td data-title="'编号'" >
+                    {{mem.serialnumber}}
+                </td>
+                <td data-title="'身份证号'" >
+                    {{mem.idcard}}
+                </td>
+                <td data-title="'手机号'" >
+                    {{mem.telphone}}
+                </td>
+                <td data-title="'银行卡号'" >
+                    {{mem.cardno}}
+                </td>
+                <td data-title="'推荐人'" >
+                    {{mem.pName}}
+                </td>
+                <td data-title="'注册日期'" >
+                    {{mem.createTime | date :'yyyy-MM-dd'}}
+                </td>
+
+            </tr>
+        </table>
+    </div>
+    <div class="yejiao">
+        <div class="col-lg-10">
+            <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" items-per-page="pageSize" class="pagination-sm" first-text="首页" last-text="尾页" ng-change="pageChanged()" previous-text="上一页" next-text="下一页" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
+        </div>
+        <div class="col-lg-2 text-center" style="margin: 20px 0;">
+            <pre style="padding: 4.5px;">页: {{bigCurrentPage}} / {{numPages}}</pre>
+        </div>
+    </div>

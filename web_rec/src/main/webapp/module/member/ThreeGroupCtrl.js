@@ -1,4 +1,4 @@
-member.controller('ThreeGroupCtrl', ['$scope','$state','$window','$filter','ThreeGroupControllerService','TableService','localStorageService','MemberControllerService', function($scope,$state,$window,$filter,ThreeGroupControllerService,TableService,localStorageService,MemberControllerService) {
+member.controller('ThreeGroupCtrl', ['$scope','$state','$window','$filter','ThreeGroupControllerService','TableService','localStorageService', function($scope,$state,$window,$filter,ThreeGroupControllerService,TableService,localStorageService) {
 
     $scope.pageSize=20;
     $scope.ifmanager = localStorageService.get('ifmanager');

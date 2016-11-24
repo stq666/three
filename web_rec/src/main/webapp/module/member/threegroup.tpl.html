@@ -30,7 +30,7 @@
                     {{data.groupName}}
                 </td>
                 <td data-title="'成员'" style="width: 10%">
-                    <a href="javascript:void(0)" ng-click="getMember(data.id)" style="color: green;">{{data.memberName}}</a>
+                    <a ng-href="#/base/groupmember/{{data.id}}"  style="color: green;">{{data.memberName}}</a>
                 </td>
                 <td data-title="'注册日期'" style="width: 10%">
                     {{data.createTime| date :'yyyy-MM-dd'}}
@@ -79,50 +79,3 @@
 
 </div>
 
-<div class="modal fade" id="groupMemsDivId">
-    <form>
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close"  data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title">组成员</h4>
-                </div>
-
-                <div class="modal-body" style="overflow: auto;">
-                    <table width="100%"  class="table" >
-                        <tr ng-repeat="mem in mems">
-                            <td data-title="'序号'" >
-                                {{$index+1}}
-                            </td>
-                            <td data-title="'姓名'" >
-                                {{mem.name}}
-                            </td>
-                            <td data-title="'编号'" >
-                                {{mem.serialnumber}}
-                            </td>
-                            <td data-title="'身份证号'" >
-                                {{mem.idcard}}
-                            </td>
-                            <td data-title="'手机号'" >
-                                {{mem.telphone}}
-                            </td>
-                            <td data-title="'银行卡号'" >
-                                {{mem.cardno}}
-                            </td>
-                            <td data-title="'推荐人'" >
-                                {{mem.pName}}
-                            </td>
-                            <td data-title="'注册日期'" >
-                                {{mem.createTime | date :'yyyy-MM-dd'}}
-                            </td>
-                        </tr>
-                    </table>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </form>
-</div>
