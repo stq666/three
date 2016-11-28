@@ -54,7 +54,7 @@
     </script>
 
    <!--添加员工-->
-<div class="modal fade" id="addModal"  data-backdrop="static">
+<div class="modal fade" id="addThreeGroupDivId"  data-backdrop="static">
     <form>
         <div class="modal-dialog">
             <div class="modal-content">
@@ -66,13 +66,13 @@
                     <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
                         <label class="col-sm-2 control-label" style="text-align: right;"><a style="color: #f00;">*</a>姓名</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" ng-model="member.name" placeholder="" maxlength="30" required >
+                            <input type="text" class="form-control" ng-model="groupName" placeholder="" maxlength="30" required >
                         </div>
                     </div>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary"  style="background: #6f2d90;" ng-disabled=" threeGroup.name==null  " ng-click="saveThreeGroup()">确认提交</button>
+                    <button type="button" class="btn btn-primary"  style="background: #6f2d90;" ng-disabled=" groupName==null  " ng-click="saveThreeGroup()">确认提交</button>
                     <button type="button" class="btn btn-default" ng-click="cancelAdd()">取消</button>
                 </div>
             </div><!-- /.modal-content -->

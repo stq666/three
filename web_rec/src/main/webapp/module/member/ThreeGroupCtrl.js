@@ -64,10 +64,21 @@ member.controller('ThreeGroupCtrl', ['$scope','$state','$window','$filter','Thre
         };
         MemberControllerService.findMemberByGroupId({groupId:groupId}).then(onSuccess,null);
     }
+    $scope.clickAdd=function(){
+        $("#addThreeGroupDivId").modal('show');
+    }
+    $scope.cancelAdd=function(){
+        $scope.groupName = null;
+        $("#addThreeGroupDivId").modal('hide');
+    }
     /**
      * 添加
      */
     $scope.saveThreeGroup=function(){
-
+        var onSuccess=function (data, status) {
+            page(1);
+            $("#addThreeGroupDivId").modal('hide');
+        };
+        ThreeGroupControllerService.saveThreeGroup({groupName:$scope.groupName}).then(onSuccess,null);
     }
 }]);
