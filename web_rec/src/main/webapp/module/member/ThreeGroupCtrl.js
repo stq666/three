@@ -71,6 +71,7 @@ member.controller('ThreeGroupCtrl', ['$scope','$state','$window','$filter','Thre
         $scope.groupName = null;
         $("#addThreeGroupDivId").modal('hide');
     }
+
     /**
      * 添加
      */
