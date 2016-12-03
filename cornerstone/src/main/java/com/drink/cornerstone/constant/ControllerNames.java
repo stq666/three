@@ -27,6 +27,7 @@ public interface ControllerNames {
     static final String memberController_findPageThreeMemberByCondition="/findPageThreeMemberByCondition";
     static final String memberController_findMaxSerialNumber="/findMaxSerialNumber";
     static final String memberController_getPserialnumber="/getPserialnumber";
+    static final String memberController_resetPwd="/resetPwd";
 
 
     //组

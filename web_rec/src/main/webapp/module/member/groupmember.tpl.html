@@ -13,13 +13,16 @@
     <div class="renyuan_tab">
         <h6 class="renyuan_h6" ng-show="ifmanager==1">
             <button ng-click="clickAdd()"><a style="color: #6d2f90;">+ 会员注册</a></button>
-            <button ng-click="modifyMember()">编辑</button>
+            <!--<button ng-click="modifyMember()">编辑</button>-->
             <!--<button ng-click="deleteMember()">禁用</button>-->
             <button ng-click="resetPwd()">重置密码</button>
             <span style="float: right; background: #fff; border: 1px solid #ccc; border-radius: 5px; height: 30px; margin: 10px 3% 0 0;"><input type="text" ng-model="searchName" style="width: 200px; height: 28px; line-height: 28px; border: none; background: none; float: left;" placeholder=" 搜索人员" ng-keydown="search()" /><img ng-click="search()" style="float: left;" src="images/vrec/demo13.png" /></span>
         </h6>
         <table width="100%" ng-table="tableParams" class="table" >
             <tr ng-repeat="mem in groupMems">
+                <td  header="'ng-table/headers/checkbox.html'" style="width: 3%" >
+                    <input type="checkbox" ng-model="checkboxes.items[mem.id]" />
+                </td>
                 <td data-title="'序号'" >
                     {{$index+1}}
                 </td>

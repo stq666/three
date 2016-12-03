@@ -43,4 +43,6 @@ public interface MemberService {
      * @return
      */
     String getPserialnumber(String serialnumber);
+
+    void updatePassword(Long[] ids);
 }

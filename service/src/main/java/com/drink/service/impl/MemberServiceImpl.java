@@ -243,4 +243,14 @@ public class MemberServiceImpl implements MemberService {
         return threeMemberMapper.selectPserialnumber(serialnumber);
     }
 
+    @Override
+    public void updatePassword(Long[] ids) {
+        if(ids!=null && ids.length>0){
+            for(Long id:ids){
+                if(id==null){continue;}
+                sysUserMapper.updatePasswordById(id,new MD5().getMD5ofStr("12345678"));
+            }
+        }
+    }
+
 }

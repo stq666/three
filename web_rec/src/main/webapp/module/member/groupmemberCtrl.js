@@ -1,6 +1,7 @@
 member.controller('GroupmemberCtrl', ['$scope','$state','$window','$filter','MemberControllerService','TableService', function($scope,$state,$window,$filter,MemberControllerService,TableService) {
     $scope.groupId = $state.params.groupid;
     $scope.member = null;
+    $scope.checkboxes = { 'checked': false, items: {} };
     //初始化
     $scope.init=function(){
         var onSuccess=function (data, status) {
@@ -87,5 +88,63 @@ member.controller('GroupmemberCtrl', ['$scope','$state','$window','$filter','Mem
             MemberControllerService.getPserialnumber({serialnumber:serialnumber}).then(onSuccess,onError);
         }
 
+    };
+    /**
+     * 监听checkbox
+     */
+    $scope.$watch('checkboxes.checked', function(value) {
+        angular.forEach($scope.data, function(item) {
+            if (angular.isDefined(item.id)) {
+                $scope.checkboxes.items[item.id] = value;
+            }
+        });
+    });
+    //重置密码
+    $scope.resetPwd=function(){
+        var ids= new Array();
+        angular.forEach($scope.checkboxes.items, function(val,key) {
+            if(val){
+                var obj = new Object();
+                ids.push(key);
+            }
+        });
+        if(ids=="" || ids.length==0){
+            bootbox.dialog({
+                message: "<p style='color:#f00; font-size:16px'>请选择要重置密码的会员！</p>",
+                title: "提示",
+                buttons: {
+                    success: {
+                        label: "确定",
+                        className: "btn-primary"
+                    }
+                }
+            });
+            return false;
+        }
+        bootbox.dialog({
+            message: "<p style='color:#f00; font-size:16px'> 确定要重置密码吗？</p>",
+            title: "提示",
+            buttons: {
+                main: {
+                    label: "是",
+                    className: "btn-primary",
+                    callback: function () {
+                        var onSuccess=function (res, status) {
+//                            page(1);
+                        };
+                        MemberControllerService.resetPwd({ids:ids}).then(onSuccess,null);
+                    }
+                },
+                success: {
+                    label: "否",
+                    className: "btn-default",
+                    callback: function () {
+                        $scope.checkboxes = { 'checked': false, items: {} };
+                    }
+                }
+
+            }
+        });
     }
+
 }]);

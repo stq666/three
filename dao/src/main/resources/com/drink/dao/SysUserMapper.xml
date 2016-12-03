@@ -102,4 +102,7 @@
     #{status,jdbcType=TINYINT}, #{ifManager,jdbcType=TINYINT}, #{memberId,jdbcType=BIGINT},
     #{createTime,jdbcType=TIMESTAMP})
   </insert>
+  <update id="updatePasswordById">
+    update user set password=#{password} where id=#{id}
+  </update>
 </mapper>

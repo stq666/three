@@ -127,6 +127,21 @@ public class MemberController {
             return msg.getResult(false,true,null,ConstantElement.commonError,ConstantElement.errorForbidCode);
         }
     }
+    @RequestMapping(value = ControllerNames.memberController_resetPwd ,method = RequestMethod.POST)
+    public @ResponseBody
+    JSONObject resetPwd(@RequestParam("ids[]")Long[]ids){
+        Message msg=new Message();
+        try {
+            memberService.updatePassword(ids);
+            return msg.getResult(true,false,ConstantElement.commonSuccess,null,null);
+        }catch (ServiceException e) {
+            logger.error(e.getMessage());
+            return msg.getResult(false,true,ConstantElement.commonError,e.getMessage(),ConstantElement.errorForbidCode);
+        }catch (Exception e){
+            logger.error(e.getMessage());
+            return msg.getResult(false,true,null,ConstantElement.commonError,ConstantElement.errorForbidCode);
+        }
+    }
 
 
 
