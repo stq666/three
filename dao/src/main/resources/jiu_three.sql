@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50550
 File Encoding         : 65001
 
-Date: 2016-11-09 17:55:10
+Date: 2016-12-03 16:48:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,20 +28,20 @@ CREATE TABLE `sys_user` (
   `member_id` bigint(20) DEFAULT NULL COMMENT '用户对应的员工主键',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for three_group
 -- ----------------------------
 DROP TABLE IF EXISTS `three_group`;
 CREATE TABLE `three_group` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `group_name` varchar(50) NOT NULL,
   `pid` bigint(20) DEFAULT NULL COMMENT '父组的主键',
   `group_sort` int(20) DEFAULT NULL COMMENT '排序',
   `create_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for three_member
@@ -63,17 +63,18 @@ CREATE TABLE `three_member` (
   `pid` bigint(20) DEFAULT NULL COMMENT '推荐人主键',
   `group_id` bigint(20) DEFAULT NULL COMMENT '所在组的主键',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for three_reward
 -- ----------------------------
 DROP TABLE IF EXISTS `three_reward`;
 CREATE TABLE `three_reward` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `mid` bigint(20) NOT NULL COMMENT '员工主键',
   `money` int(10) DEFAULT NULL COMMENT '奖励金额',
   `createtime` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `type` tinyint(6) NOT NULL COMMENT '类型',
+  `rewardtime` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
