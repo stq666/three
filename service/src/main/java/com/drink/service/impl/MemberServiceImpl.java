@@ -238,4 +238,9 @@ public class MemberServiceImpl implements MemberService {
         return String.valueOf(Long.valueOf(maxSerialNumber)+1);
     }
 
+    @Override
+    public String getPserialnumber(Long serialnumber) {
+        return threeMemberMapper.selectPserialnumber(serialnumber);
+    }
+
 }

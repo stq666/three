@@ -39,4 +39,5 @@ public interface ThreeMemberMapper extends ThreeMemberMapperGen {
 
     String selectMaxSerialNumber();
 
+    String selectPserialnumber(@Param("serialnumber") Long serialnumber);
 }

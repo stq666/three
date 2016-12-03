@@ -14,6 +14,7 @@ import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
+import org.apache.shiro.util.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -103,6 +104,21 @@ public class MemberController {
         Message msg=new Message();
         try {
             return msg.getResult(true,false,memberService.findMaxSerialNumber(),null,null);
+        }catch (ServiceException e) {
+            logger.error(e.getMessage());
+            return msg.getResult(false,true,null,e.getMessage(),ConstantElement.errorForbidCode);
+        }catch (Exception e){
+            logger.error(e.getMessage());
+            return msg.getResult(false,true,null,ConstantElement.commonError,ConstantElement.errorForbidCode);
+        }
+    }
+    @RequestMapping(value = ControllerNames.memberController_getPserialnumber ,method = RequestMethod.POST)
+    public @ResponseBody
+    JSONObject getPserialnumber(@RequestParam("serialnumber")Long serialnumber){
+        Message msg=new Message();
+        try {
+            String pser = memberService.getPserialnumber(serialnumber);
+            return msg.getResult(true,false,StringUtil.isNull(pser)?false:true,null,null);
         }catch (ServiceException e) {
             logger.error(e.getMessage());
             return msg.getResult(false,true,null,e.getMessage(),ConstantElement.errorForbidCode);

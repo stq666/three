@@ -71,12 +71,19 @@ member.controller('GroupmemberCtrl', ['$scope','$state','$window','$filter','Mem
     $scope.cancelAdd=function(){
         $scope.init();
         $("#addModal").modal('hide');
-        $scope.checkboxes = { 'checked': false, items: {} };
-        $scope.member = null;
-        $scope.org =null;
-        $scope.errorSerFlag = false;
-        $scope.errorEmailFlag = false;
-        $scope.errorPhoneFlag = false;
-        $scope.oldEmail=null
     };
+    $scope.getPserialnumber=function(serialnumber){
+        if(serialnumber==0){
+            $scope.pflag = true;
+        }else{
+            var onSuccess=function (res, status) {
+                $scope.pflag = res.result.returnObject;
+            };
+            var onError=function (res, status) {
+                $scope.aa = res;
+            };
+            MemberControllerService.getPserialnumber(serialnumber).then(onSuccess,onError);
+        }
+
+    }
 }]);

@@ -134,4 +134,7 @@
   <select id="selectMaxSerialNumber" resultType="java.lang.String">
     select max(serialnumber) from three_member
   </select>
+  <select id="selectPserialnumber" resultType="java.lang.String">
+    SELECT id from three_member where serialnumber=#{serialnumber}
+  </select>
 </mapper>

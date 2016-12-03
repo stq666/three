@@ -36,4 +36,11 @@ public interface MemberService {
      * @return
      */
     public String findMaxSerialNumber();
+
+    /**
+     * 获取父编号
+     * @param serialnumber
+     * @return
+     */
+    String getPserialnumber(Long serialnumber);
 }

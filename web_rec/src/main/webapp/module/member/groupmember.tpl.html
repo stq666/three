@@ -72,13 +72,12 @@
                         <label class="col-sm-2 control-label" style="text-align: right;"><a style="color: #f00;">*</a>员工编号</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" ng-model="member.serialnumber" placeholder="" maxlength="30" disabled>
-                            <span ng-show="errorSerFlag" style="color: red;">必填</span>
                         </div>
                     </div>
                     <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
                         <label class="col-sm-2 control-label" style="text-align: right;"><a style="color: #f00;">*</a>姓名</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" ng-model="member.name" placeholder="" maxlength="30" required >
+                            <input type="text" class="form-control" ng-model="member.name" placeholder="姓名必填" maxlength="30" required >
                         </div>
                     </div>
                     <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
@@ -118,20 +117,19 @@
                         <label class="col-sm-2 control-label" style="text-align: right;"><a style="color: #f00;">*</a>银行卡号</label>
                         <div class="col-sm-10">
                             <input  class="form-control" placeholder="银行卡号必填" ng-model="member.cardno" type="text" maxlength="50" required >
-                            <span ng-show="errorEmailFlag" style="color: red;">必填</span>
                         </div>
                     </div>
                     <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
                         <label class="col-sm-2 control-label" style="text-align: right;"><a style="color: #f00;">*</a>手机</label>
                         <div class="col-sm-10">
                             <input class="form-control" placeholder="" ng-model="member.telphone" type="text" maxlength="11" required ng-blur="judgePhone()">
-                            <span ng-show="errorPhoneFlag" style="color: red;">必填</span>
                         </div>
                     </div>
                     <div class="form-group" style="width:100%;float:left;margin-bottom: 8px;">
                         <label class="col-sm-2 control-label" style="text-align: right;"><a style="color: #f00;">*</a>推荐人编号</label>
                         <div class="col-sm-10">
-                            <input class="form-control" placeholder="" ng-model="member.pserialnumber" type="text" maxlength="11">
+                            <input class="form-control" placeholder="输入上级编号，没有上级填写0" ng-model="member.pserialnumber" type="text" maxlength="11" ng-blur="getPserialnumber(member.pserialnumber)">
+                            <span ng-show="!pflag" style="color: red;">上级编号不存在，请重新输入</span>
                         </div>
                     </div>
 
