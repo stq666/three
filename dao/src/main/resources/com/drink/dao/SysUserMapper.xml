@@ -103,6 +103,6 @@
     #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <update id="updatePasswordById">
-    update user set password=#{password} where id=#{id}
+    update sys_user set password=#{password} where id=#{id}
   </update>
 </mapper>
