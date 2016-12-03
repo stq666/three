@@ -2,6 +2,7 @@ package com.drink.service.impl;
 
 import com.drink.cornerstone.constant.ConstantElement;
 import com.drink.cornerstone.util.MD5;
+import com.drink.cornerstone.util.StringUtil;
 import com.drink.dao.SysUserMapper;
 import com.drink.dao.ThreeGroupMapper;
 import com.drink.dao.ThreeMemberMapper;
@@ -227,6 +228,14 @@ public class MemberServiceImpl implements MemberService {
 
     private List<Long> findMemberByGroupId(Long groupId) {
         return threeMemberMapper.selectIdsByGroupId(groupId);
+    }
+    @Override
+    public String findMaxSerialNumber() {
+        String maxSerialNumber = threeMemberMapper.selectMaxSerialNumber();
+        if(StringUtil.isNull(maxSerialNumber)){
+            return "30000";
+        }
+        return String.valueOf(Long.valueOf(maxSerialNumber)+1);
     }
 
 }

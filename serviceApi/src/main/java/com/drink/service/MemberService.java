@@ -30,4 +30,10 @@ public interface MemberService {
      * @return
      */
     Page<ThreeMemberVo> findPageThreeMemberByCondition(Page<ThreeMemberVo> page);
+
+    /**
+     * 获取员工的最大编号
+     * @return
+     */
+    public String findMaxSerialNumber();
 }

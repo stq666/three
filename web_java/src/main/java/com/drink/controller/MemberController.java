@@ -93,7 +93,24 @@ public class MemberController {
             return msg.getResult(false,true,null,ConstantElement.commonError,ConstantElement.errorForbidCode);
         }
     }
-
+    /**
+     * 获取会员的最大编号
+     * @return
+     */
+    @RequestMapping(value = ControllerNames.memberController_findMaxSerialNumber ,method = RequestMethod.POST)
+    public @ResponseBody
+    JSONObject findMaxSerialNumber(){
+        Message msg=new Message();
+        try {
+            return msg.getResult(true,false,memberService.findMaxSerialNumber(),null,null);
+        }catch (ServiceException e) {
+            logger.error(e.getMessage());
+            return msg.getResult(false,true,null,e.getMessage(),ConstantElement.errorForbidCode);
+        }catch (Exception e){
+            logger.error(e.getMessage());
+            return msg.getResult(false,true,null,ConstantElement.commonError,ConstantElement.errorForbidCode);
+        }
+    }
 
 
 

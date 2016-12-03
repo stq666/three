@@ -131,4 +131,7 @@
     </where>
     order by m.create_time asc  limit #{start} , #{limit}
   </select>
+  <select id="selectMaxSerialNumber" resultType="java.lang.String">
+    select max(serialnumber) from three_member
+  </select>
 </mapper>

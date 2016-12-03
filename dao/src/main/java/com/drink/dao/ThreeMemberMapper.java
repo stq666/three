@@ -36,4 +36,7 @@ public interface ThreeMemberMapper extends ThreeMemberMapperGen {
      * @return
      */
     List<ThreeMemberVo> findDataByCondition(ThreeMemberVo vo);
+
+    String selectMaxSerialNumber();
+
 }
