@@ -114,7 +114,7 @@ public class MemberController {
     }
     @RequestMapping(value = ControllerNames.memberController_getPserialnumber ,method = RequestMethod.POST)
     public @ResponseBody
-    JSONObject getPserialnumber(@RequestParam("serialnumber")Long serialnumber){
+    JSONObject getPserialnumber(@RequestParam("serialnumber")String serialnumber){
         Message msg=new Message();
         try {
             String pser = memberService.getPserialnumber(serialnumber);

@@ -42,7 +42,7 @@ public class MemberServiceImpl implements MemberService {
         Long memberId = saveThreeMember(vo);
         saveSysUser(memberId,vo);
         updateThreeGroupPid(vo.getGroupId(),vo.getGroupPid());
-        saveThreeReward(vo.getGroupPid(),vo.getPid());
+        saveThreeReward(memberId,vo.getGroupPid(),vo.getPid());
     }
 
     @Override
@@ -91,7 +91,7 @@ public class MemberServiceImpl implements MemberService {
         member.setAlipay(vo.getAlipay());
         member.setPid(vo.getPid());
         member.setGroupId(vo.getGroupId());
-        threeMemberMapper.insert(member);
+        threeMemberMapper.save(member);
         return threeGroupMapper.selectId();
     }
 
@@ -108,7 +108,7 @@ public class MemberServiceImpl implements MemberService {
         user.setIfManager((byte)0);
         user.setMemberId(memberId);
         user.setCreateTime(new Date());
-        sysUserMapper.insert(user);
+        sysUserMapper.save(user);
     }
 
     /**
@@ -125,9 +125,9 @@ public class MemberServiceImpl implements MemberService {
      * @param groupPid
      * @param pid
      */
-    private void saveThreeReward(Long groupPid,Long pid) {
+    private void saveThreeReward(Long mid,Long groupPid,Long pid) {
         //添加推荐奖
-        saveRecommendReward(pid,50,(byte)0);
+        saveRecommendReward(mid,50,(byte)0);
         //添加层奖
         if(pid!=null){
             saveLayerReward(groupPid);
@@ -147,7 +147,7 @@ public class MemberServiceImpl implements MemberService {
         reward.setMoney(money);
         reward.setCreatetime(new Date());
         reward.setType(type);
-        threeRewardMapper.insert(reward);
+        threeRewardMapper.save(reward);
     }
 
     /**
@@ -239,7 +239,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public String getPserialnumber(Long serialnumber) {
+    public String getPserialnumber(String serialnumber) {
         return threeMemberMapper.selectPserialnumber(serialnumber);
     }
 

@@ -93,4 +93,13 @@
     </where>
 
   </select>
+
+  <insert id="save" parameterType="com.drink.model.SysUser">
+    insert into sys_user (login_name, password,
+    status, if_manager, member_id,
+    create_time)
+    values (#{loginName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+    #{status,jdbcType=TINYINT}, #{ifManager,jdbcType=TINYINT}, #{memberId,jdbcType=BIGINT},
+    #{createTime,jdbcType=TIMESTAMP})
+  </insert>
 </mapper>

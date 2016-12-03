@@ -137,4 +137,17 @@
   <select id="selectPserialnumber" resultType="java.lang.String">
     SELECT id from three_member where serialnumber=#{serialnumber}
   </select>
+
+  <insert id="save" parameterType="com.drink.model.ThreeMember">
+    insert into three_member (name, sex,
+    serialnumber, idcard, telphone,
+    cardno, createtime, wechat,
+    qq, status, alipay,
+    pid, group_id)
+    values (#{name,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT},
+    #{serialnumber,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, #{telphone,jdbcType=VARCHAR},
+    #{cardno,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{wechat,jdbcType=VARCHAR},
+    #{qq,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{alipay,jdbcType=VARCHAR},
+    #{pid,jdbcType=BIGINT}, #{groupId,jdbcType=BIGINT})
+  </insert>
 </mapper>

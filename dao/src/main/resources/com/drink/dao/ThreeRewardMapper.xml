@@ -82,4 +82,12 @@
     GROUP BY rewardtime
     ORDER BY rewardtime DESC
   </select>
+  <insert id="save" parameterType="com.drink.model.ThreeReward">
+    insert into three_reward (mid, money,
+    createtime, type, rewardtime
+    )
+    values (#{mid,jdbcType=BIGINT}, #{money,jdbcType=INTEGER},
+    #{createtime,jdbcType=TIMESTAMP}, #{type,jdbcType=TINYINT}, #{rewardtime,jdbcType=DATE}
+    )
+  </insert>
 </mapper>

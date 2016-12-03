@@ -1,6 +1,7 @@
 package com.drink.dao;
 
 import com.drink.daogen.ThreeMemberMapperGen;
+import com.drink.model.ThreeMember;
 import com.drink.module.ThreeMemberVo;
 import org.apache.ibatis.annotations.Param;
 
@@ -39,5 +40,8 @@ public interface ThreeMemberMapper extends ThreeMemberMapperGen {
 
     String selectMaxSerialNumber();
 
-    String selectPserialnumber(@Param("serialnumber") Long serialnumber);
+    String selectPserialnumber(@Param("serialnumber") String serialnumber);
+
+    void save(ThreeMember member);
+
 }

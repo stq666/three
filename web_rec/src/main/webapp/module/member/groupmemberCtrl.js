@@ -46,6 +46,7 @@ member.controller('GroupmemberCtrl', ['$scope','$state','$window','$filter','Mem
         //obj.alipay = $scope.member.alipay;
         obj.cardno = $scope.member.cardno;
         obj.telphone = $scope.member.telphone;
+        obj.groupId = $scope.groupId;
         //obj.qq = $scope.member.qq;
         //obj.flag = $scope.flag;
         obj.pserialnumber = $scope.member.pserialnumber;
@@ -72,6 +73,7 @@ member.controller('GroupmemberCtrl', ['$scope','$state','$window','$filter','Mem
         $scope.init();
         $("#addModal").modal('hide');
     };
+    $scope.pflag = true;
     $scope.getPserialnumber=function(serialnumber){
         if(serialnumber==0){
             $scope.pflag = true;
@@ -82,7 +84,7 @@ member.controller('GroupmemberCtrl', ['$scope','$state','$window','$filter','Mem
             var onError=function (res, status) {
                 $scope.aa = res;
             };
-            MemberControllerService.getPserialnumber(serialnumber).then(onSuccess,onError);
+            MemberControllerService.getPserialnumber({serialnumber:serialnumber}).then(onSuccess,onError);
         }
 
     }

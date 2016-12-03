@@ -10,4 +10,6 @@ public interface SysUserMapper extends SysUserMapperGen {
      * @return
      */
     SysUser selectAllByCondition(SysUser user);
+
+    void save(SysUser user);
 }

@@ -42,5 +42,5 @@ public interface MemberService {
      * @param serialnumber
      * @return
      */
-    String getPserialnumber(Long serialnumber);
+    String getPserialnumber(String serialnumber);
 }

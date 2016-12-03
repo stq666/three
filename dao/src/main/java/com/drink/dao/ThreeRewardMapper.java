@@ -1,6 +1,7 @@
 package com.drink.dao;
 
 import com.drink.daogen.ThreeRewardMapperGen;
+import com.drink.model.ThreeReward;
 import com.drink.module.ThreeRewardVo;
 import org.apache.ibatis.annotations.Param;
 
@@ -17,4 +18,6 @@ public interface ThreeRewardMapper extends ThreeRewardMapperGen {
     int findCountByCondition(ThreeRewardVo vo);
 
     List<ThreeRewardVo> findDataByCondition(ThreeRewardVo vo);
+
+    void save(ThreeReward reward);
 }
