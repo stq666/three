@@ -1,6 +1,6 @@
-member.controller('StructureCtrl', ['$scope','$window','$state','safeApply','localStorageService','TreeDataService','MemberControllerService',function($scope,$window,$state,safeApply,localStorageService,TreeDataService,MemberControllerService) {
+member.controller('StructureCtrl', ['$scope','$window','$state','safeApply','localStorageService','TreeDataService','ThreeGroupControllerService',function($scope,$window,$state,safeApply,localStorageService,TreeDataService,ThreeGroupControllerService) {
 'use strict';
-    $scope.id = $state.params.id;
+    $scope.groupId = $state.params.groupId;
     $scope.init=function(){
         var onSuccess=function (data, status) {
             $scope.mems = data.result.returnObject;
@@ -10,7 +10,7 @@ member.controller('StructureCtrl', ['$scope','$window','$state','safeApply','loc
             });
         };
 
-        MemberControllerService.findStructurlAllMemberById({id:$scope.id}).then(onSuccess,null);
+        ThreeGroupControllerService.findStructurlByGroupId({groupId:$scope.groupId}).then(onSuccess,null);
     }
     $scope.init();
 

@@ -9,6 +9,7 @@ import com.drink.model.ThreeGroup;
 import com.drink.module.Message;
 import com.drink.module.Page;
 import com.drink.module.ThreeGroupVo;
+import com.drink.module.TreeNode;
 import com.drink.service.ThreeGroupService;
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by stq on 16-11-16.
@@ -77,6 +79,8 @@ public class ThreeGroupController {
     public @ResponseBody JSONObject findStructurlByGroupId(@RequestParam("groupId") Long groupId){
         Message msg=new Message();
         try {
+            List<TreeNode> list = threeGroupService.findStructurlByGroupId(groupId);
+            return msg.getResult(true,false,list,null,null);
         }catch (ServiceException e) {
             logger.error("获取抱团组列表时失败："+e.getMessage());
             return msg.getResult(false,true,null,ConstantElement.commonError,ConstantElement.errorForbidCode);
@@ -84,7 +88,6 @@ public class ThreeGroupController {
             logger.error("获取抱团组列表时失败："+e.getMessage());
             return msg.getResult(false,true,null,ConstantElement.commonError,ConstantElement.errorForbidCode);
         }
-        return null;
     }
 
 }
